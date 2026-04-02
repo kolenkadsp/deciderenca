@@ -1,7 +1,7 @@
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 import pandas as pd
-from pipeline.normalize import load_elections
+from pipeline.normalize import load_elections, load_locales
 
 DATA_DIR = "C:/Users/nvargasv/Downloads/Visor_Renca"
 
@@ -38,3 +38,18 @@ def test_votos_are_numeric_and_positive():
     for eid, df in elections.items():
         assert pd.api.types.is_numeric_dtype(df["votos"]), f"{eid} votos not numeric"
         assert (df["votos"] >= 0).all(), f"{eid} has negative votos"
+
+def test_load_locales_returns_18_rows():
+    locales = load_locales(DATA_DIR)
+    assert len(locales) == 18
+
+def test_locales_have_valid_coordinates():
+    locales = load_locales(DATA_DIR)
+    assert locales["lat"].between(-33.44, -33.37).all(), "latitudes fuera de bbox"
+    assert locales["lon"].between(-70.80, -70.66).all(), "longitudes fuera de bbox"
+
+def test_locales_coords_are_float():
+    locales = load_locales(DATA_DIR)
+    import numpy as np
+    assert locales["lat"].dtype == np.float64
+    assert locales["lon"].dtype == np.float64

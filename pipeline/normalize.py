@@ -107,3 +107,14 @@ def load_elections(data_dir: str) -> dict:
                         as_index=False)["votos"].sum()
         result[eid] = df
     return result
+
+
+def load_locales(data_dir: str) -> pd.DataFrame:
+    """Carga locales_final.csv. Convierte coordenadas con coma decimal a float."""
+    df = pd.read_csv(f"{data_dir}/locales_final.csv", encoding="cp1252")
+    df = df.rename(columns={"local_votacion": "local",
+                             "Latitude": "lat", "Longitude": "lon"})
+    df["lat"] = df["lat"].astype(str).str.replace(",", ".").astype(float)
+    df["lon"] = df["lon"].astype(str).str.replace(",", ".").astype(float)
+    df["local"] = df["local"].apply(_normalize_local)
+    return df[["local", "lat", "lon"]]
