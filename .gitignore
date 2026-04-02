@@ -1,0 +1,15 @@
+# Raw data (too large for git)
+*.parquet
+*.shp
+*.shx
+*.dbf
+*.prj
+*.sbx
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Superpowers
+.superpowers/

@@ -1,0 +1,765 @@
+{
+  "elections": [
+    {
+      "id": "muni24",
+      "label": "Municipal 2024",
+      "type": "alcalde"
+    },
+    {
+      "id": "parla25",
+      "label": "Parlamentarias 2025",
+      "type": "diputado"
+    },
+    {
+      "id": "pres1v25",
+      "label": "Presidencial 1ª Vuelta 2025",
+      "type": "presidente"
+    },
+    {
+      "id": "pres2v25",
+      "label": "Presidencial 2ª Vuelta 2025",
+      "type": "presidente"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "matthei",
+      "name": "Evelyn Matthei",
+      "party": "UDI",
+      "color": "#003B8E",
+      "elections": [
+        "pres1v25"
+      ]
+    },
+    {
+      "id": "jara",
+      "name": "Jeannette Jara",
+      "party": "PC",
+      "color": "#CC0000",
+      "elections": [
+        "pres1v25",
+        "pres2v25"
+      ]
+    },
+    {
+      "id": "kast",
+      "name": "José Antonio Kast",
+      "party": "PRep",
+      "color": "#8B0000",
+      "elections": [
+        "pres1v25",
+        "pres2v25"
+      ]
+    },
+    {
+      "id": "parisi",
+      "name": "Franco Parisi",
+      "party": "PDG",
+      "color": "#6B2FA0",
+      "elections": [
+        "pres1v25"
+      ]
+    },
+    {
+      "id": "kaiser",
+      "name": "Johannes Kaiser",
+      "party": "Libertario",
+      "color": "#1A1A1A",
+      "elections": [
+        "pres1v25"
+      ]
+    },
+    {
+      "id": "enriquez",
+      "name": "Marco Enríquez-Ominami",
+      "party": "otros",
+      "color": "#888888",
+      "elections": [
+        "pres1v25"
+      ]
+    },
+    {
+      "id": "artes",
+      "name": "Eduardo Artes",
+      "party": "otros",
+      "color": "#888888",
+      "elections": [
+        "pres1v25"
+      ]
+    },
+    {
+      "id": "mayne",
+      "name": "Harold Mayne-Nicholls",
+      "party": "otros",
+      "color": "#888888",
+      "elections": [
+        "pres1v25"
+      ]
+    },
+    {
+      "id": "__blancos__",
+      "name": "Votos en Blanco",
+      "party": "anomia",
+      "color": "#AAAAAA",
+      "elections": [
+        "muni24",
+        "parla25",
+        "pres1v25",
+        "pres2v25"
+      ]
+    },
+    {
+      "id": "__nulos__",
+      "name": "Votos Nulos",
+      "party": "anomia",
+      "color": "#666666",
+      "elections": [
+        "muni24",
+        "parla25",
+        "pres1v25",
+        "pres2v25"
+      ]
+    },
+    {
+      "id": "camila_ines_aviles",
+      "name": "CAMILA INES AVILES",
+      "party": "PARTIDO DEMOCRATAS CHILE",
+      "pacto": "PARTIDO DEMOCRATAS CHILE",
+      "color": "#888888",
+      "elections": [
+        "muni24"
+      ]
+    },
+    {
+      "id": "claudio_nicolas_castro",
+      "name": "CLAUDIO NICOLAS CASTRO",
+      "party": "INDEPENDIENTES",
+      "pacto": "INDEPENDIENTES",
+      "color": "#888888",
+      "elections": [
+        "muni24"
+      ]
+    },
+    {
+      "id": "paul_freddy_herrera",
+      "name": "PAUL FREDDY HERRERA",
+      "party": "PARTIDO DE LA GENTE",
+      "pacto": "PARTIDO DE LA GENTE",
+      "color": "#888888",
+      "elections": [
+        "muni24"
+      ]
+    },
+    {
+      "id": "__blancos__",
+      "name": "__blancos__",
+      "party": "otros",
+      "pacto": "otros",
+      "color": "#888888",
+      "elections": [
+        "muni24"
+      ]
+    },
+    {
+      "id": "__nulos__",
+      "name": "__nulos__",
+      "party": "otros",
+      "pacto": "otros",
+      "color": "#888888",
+      "elections": [
+        "muni24"
+      ]
+    },
+    {
+      "id": "100_margarita_garrido_acevedo",
+      "name": "100 MARGARITA GARRIDO ACEVEDO",
+      "party": "PNL",
+      "pacto": "K - CAMBIO POR CHILE",
+      "color": "#0057B8",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "101_valeska_oyarce_peã‘a",
+      "name": "101 VALESKA OYARCE PEÃ‘A",
+      "party": "PSC",
+      "pacto": "K - CAMBIO POR CHILE",
+      "color": "#0057B8",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "102_alberto_seguel_mena",
+      "name": "102 ALBERTO SEGUEL MENA",
+      "party": "PSC",
+      "pacto": "K - CAMBIO POR CHILE",
+      "color": "#0057B8",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "103_carolina_garate_vergara",
+      "name": "103 CAROLINA GARATE VERGARA",
+      "party": "PSC",
+      "pacto": "K - CAMBIO POR CHILE",
+      "color": "#0057B8",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "51_alejandra_perez_espina",
+      "name": "51 ALEJANDRA PEREZ ESPINA",
+      "party": "AH",
+      "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS",
+      "color": "#7B1C3E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "52_ariel_mateluna_mateluna",
+      "name": "52 ARIEL MATELUNA MATELUNA",
+      "party": "IND-AH",
+      "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS",
+      "color": "#7B1C3E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "53_waleska_ubierna_navarro",
+      "name": "53 WALESKA UBIERNA NAVARRO",
+      "party": "AH",
+      "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS",
+      "color": "#7B1C3E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "54_jose_luis_villagran_barahon",
+      "name": "54 JOSE LUIS VILLAGRAN BARAHONA",
+      "party": "IND-AH",
+      "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS",
+      "color": "#7B1C3E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "55_paola_cadiz_nuã‘ez",
+      "name": "55 PAOLA CADIZ NUÃ‘EZ",
+      "party": "FREVS",
+      "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS",
+      "color": "#7B1C3E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "56_evelyn_farias_ailio",
+      "name": "56 EVELYN FARIAS AILIO",
+      "party": "IND-FREVS",
+      "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS",
+      "color": "#7B1C3E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "57_jose_sepulveda_zelada",
+      "name": "57 JOSE SEPULVEDA ZELADA",
+      "party": "IND-FREVS",
+      "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS",
+      "color": "#7B1C3E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "58_andres_giordano_salazar",
+      "name": "58 ANDRES GIORDANO SALAZAR",
+      "party": "FA",
+      "pacto": "C - UNIDAD POR CHILE",
+      "color": "#CC0000",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "59_leonardo_jofre_rios",
+      "name": "59 LEONARDO JOFRE RIOS",
+      "party": "FA",
+      "pacto": "C - UNIDAD POR CHILE",
+      "color": "#CC0000",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "60_boris_barrera_moreno",
+      "name": "60 BORIS BARRERA MORENO",
+      "party": "PCCH",
+      "pacto": "C - UNIDAD POR CHILE",
+      "color": "#CC0000",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "61_carola_rivero_canales",
+      "name": "61 CAROLA RIVERO CANALES",
+      "party": "PS",
+      "pacto": "C - UNIDAD POR CHILE",
+      "color": "#CC0000",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "62_cesar_valenzuela_maass",
+      "name": "62 CESAR VALENZUELA MAASS",
+      "party": "PS",
+      "pacto": "C - UNIDAD POR CHILE",
+      "color": "#CC0000",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "63_sandra_gonzalez_zamorano",
+      "name": "63 SANDRA GONZALEZ ZAMORANO",
+      "party": "IND-PPD",
+      "pacto": "C - UNIDAD POR CHILE",
+      "color": "#CC0000",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "64_carlos_cuadrado_prats",
+      "name": "64 CARLOS CUADRADO PRATS",
+      "party": "PPD",
+      "pacto": "C - UNIDAD POR CHILE",
+      "color": "#CC0000",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "65_amelia_del_carmen_gallegos_",
+      "name": "65 AMELIA DEL CARMEN GALLEGOS RAMIREZ",
+      "party": "PH",
+      "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA",
+      "color": "#5A1030",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "66_viviana_montecinos_suazo",
+      "name": "66 VIVIANA MONTECINOS SUAZO",
+      "party": "IND-PH",
+      "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA",
+      "color": "#5A1030",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "67_adrian_antonio_lizama_barra",
+      "name": "67 ADRIAN ANTONIO LIZAMA BARRA",
+      "party": "IND-PH",
+      "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA",
+      "color": "#5A1030",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "68_juan_andres_pino_madrid",
+      "name": "68 JUAN ANDRES PINO MADRID",
+      "party": "IND-PH",
+      "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA",
+      "color": "#5A1030",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "69_sergio_enrique_flores_ramir",
+      "name": "69 SERGIO ENRIQUE FLORES RAMIREZ",
+      "party": "IND-PH",
+      "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA",
+      "color": "#5A1030",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "70_ester_barrientos_vargas",
+      "name": "70 ESTER BARRIENTOS VARGAS",
+      "party": "IND-PH",
+      "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA",
+      "color": "#5A1030",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "71_luis_alberto_donoso_uribe",
+      "name": "71 LUIS ALBERTO DONOSO URIBE",
+      "party": "IND-PH",
+      "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA",
+      "color": "#5A1030",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "72_manuel_enrique_muã‘oz_palac",
+      "name": "72 MANUEL ENRIQUE MUÃ‘OZ PALACIOS",
+      "party": "PAVP",
+      "pacto": "G - PARTIDO ALIANZA VERDE POPULAR",
+      "color": "#2E7D32",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "73_xuxa_alvarez_fernandez",
+      "name": "73 XUXA ALVAREZ FERNANDEZ",
+      "party": "PAVP",
+      "pacto": "G - PARTIDO ALIANZA VERDE POPULAR",
+      "color": "#2E7D32",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "74_jose_guillermo_rojas_inostr",
+      "name": "74 JOSE GUILLERMO ROJAS INOSTROZA",
+      "party": "PAVP",
+      "pacto": "G - PARTIDO ALIANZA VERDE POPULAR",
+      "color": "#2E7D32",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "75_isabel_palma_palma",
+      "name": "75 ISABEL PALMA PALMA",
+      "party": "PAVP",
+      "pacto": "G - PARTIDO ALIANZA VERDE POPULAR",
+      "color": "#2E7D32",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "76_maria_elena_valenzuela_pino",
+      "name": "76 MARIA ELENA VALENZUELA PINO",
+      "party": "PAVP",
+      "pacto": "G - PARTIDO ALIANZA VERDE POPULAR",
+      "color": "#2E7D32",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "77_lorenzo_lepin_araneda",
+      "name": "77 LORENZO LEPIN ARANEDA",
+      "party": "PAVP",
+      "pacto": "G - PARTIDO ALIANZA VERDE POPULAR",
+      "color": "#2E7D32",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "78_daniel_eduardo_canto_gonzal",
+      "name": "78 DANIEL EDUARDO CANTO GONZALEZ",
+      "party": "PAVP",
+      "pacto": "G - PARTIDO ALIANZA VERDE POPULAR",
+      "color": "#2E7D32",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "79_roberto_lobos_villaseca",
+      "name": "79 ROBERTO LOBOS VILLASECA",
+      "party": "PAVP",
+      "pacto": "G - PARTIDO ALIANZA VERDE POPULAR",
+      "color": "#2E7D32",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "80_tamara_alejandra_ramirez_ra",
+      "name": "80 TAMARA ALEJANDRA RAMIREZ RAMIREZ",
+      "party": "PDG",
+      "pacto": "I - PARTIDO DE LA GENTE",
+      "color": "#6B2FA0",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "81_andres_rigoberto_caceres_br",
+      "name": "81 ANDRES RIGOBERTO CACERES BRAVO",
+      "party": "PDG",
+      "pacto": "I - PARTIDO DE LA GENTE",
+      "color": "#6B2FA0",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "82_pamela_del_transito_amaro_a",
+      "name": "82 PAMELA DEL TRANSITO AMARO ARAYA",
+      "party": "PDG",
+      "pacto": "I - PARTIDO DE LA GENTE",
+      "color": "#6B2FA0",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "83_francisco_javier_lizana_don",
+      "name": "83 FRANCISCO JAVIER LIZANA DONOSO",
+      "party": "PDG",
+      "pacto": "I - PARTIDO DE LA GENTE",
+      "color": "#6B2FA0",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "84_cesar_abraham_suay_jerez",
+      "name": "84 CESAR ABRAHAM SUAY JEREZ",
+      "party": "PDG",
+      "pacto": "I - PARTIDO DE LA GENTE",
+      "color": "#6B2FA0",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "85_maria_soledad_liempan_apele",
+      "name": "85 MARIA SOLEDAD LIEMPAN APELEO",
+      "party": "PDG",
+      "pacto": "I - PARTIDO DE LA GENTE",
+      "color": "#6B2FA0",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "86_crescencio_alberto_lopez_pe",
+      "name": "86 CRESCENCIO ALBERTO LOPEZ PEREZ",
+      "party": "PDG",
+      "pacto": "I - PARTIDO DE LA GENTE",
+      "color": "#6B2FA0",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "87_christopher_elias_yaã‘ez_le",
+      "name": "87 CHRISTOPHER ELIAS YAÃ‘EZ LEAL",
+      "party": "PDG",
+      "pacto": "I - PARTIDO DE LA GENTE",
+      "color": "#6B2FA0",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "88_guillermo_ramirez_diez",
+      "name": "88 GUILLERMO RAMIREZ DIEZ",
+      "party": "UDI",
+      "pacto": "J - CHILE GRANDE Y UNIDO",
+      "color": "#003B8E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "89_jose_miguel_gonzalez_zapata",
+      "name": "89 JOSE MIGUEL GONZALEZ ZAPATA",
+      "party": "UDI",
+      "pacto": "J - CHILE GRANDE Y UNIDO",
+      "color": "#003B8E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "90_erika_olivera_de_la_fuente",
+      "name": "90 ERIKA OLIVERA DE LA FUENTE",
+      "party": "DEMOCRATAS",
+      "pacto": "J - CHILE GRANDE Y UNIDO",
+      "color": "#003B8E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "91_veronica_montecinos_ortiz",
+      "name": "91 VERONICA MONTECINOS ORTIZ",
+      "party": "DEMOCRATAS",
+      "pacto": "J - CHILE GRANDE Y UNIDO",
+      "color": "#003B8E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "92_aldo_duque_santos",
+      "name": "92 ALDO DUQUE SANTOS",
+      "party": "IND-RN",
+      "pacto": "J - CHILE GRANDE Y UNIDO",
+      "color": "#003B8E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "93_maria_elena_barco_sanchez",
+      "name": "93 MARIA ELENA BARCO SANCHEZ",
+      "party": "RN",
+      "pacto": "J - CHILE GRANDE Y UNIDO",
+      "color": "#003B8E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "94_felipe_vidal_cuevas",
+      "name": "94 FELIPE VIDAL CUEVAS",
+      "party": "IND-EVOPOLI",
+      "pacto": "J - CHILE GRANDE Y UNIDO",
+      "color": "#003B8E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "95_juan_manuel_santa_cruz_camp",
+      "name": "95 JUAN MANUEL SANTA CRUZ CAMPAÃ‘A",
+      "party": "EVOPOLI",
+      "pacto": "J - CHILE GRANDE Y UNIDO",
+      "color": "#003B8E",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "96_jose_carlos_meza_pereira",
+      "name": "96 JOSE CARLOS MEZA PEREIRA",
+      "party": "REPUBLICAN",
+      "pacto": "K - CAMBIO POR CHILE",
+      "color": "#0057B8",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "97_macarena_garcia-huidobro_ll",
+      "name": "97 MACARENA GARCIA-HUIDOBRO LLORT",
+      "party": "REPUBLICAN",
+      "pacto": "K - CAMBIO POR CHILE",
+      "color": "#0057B8",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "98_javiera_rodriguez_pascual",
+      "name": "98 JAVIERA RODRIGUEZ PASCUAL",
+      "party": "REPUBLICAN",
+      "pacto": "K - CAMBIO POR CHILE",
+      "color": "#0057B8",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "99_maximiliano_murath_mansilla",
+      "name": "99 MAXIMILIANO MURATH MANSILLA",
+      "party": "PNL",
+      "pacto": "K - CAMBIO POR CHILE",
+      "color": "#0057B8",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "total_votaciã³n",
+      "name": "Total VotaciÃ³n",
+      "party": "otros",
+      "pacto": "No aplica",
+      "color": "#888888",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "vã¡lidamente_emitidos",
+      "name": "VÃ¡lidamente Emitidos",
+      "party": "otros",
+      "pacto": "No aplica",
+      "color": "#888888",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "__blancos__",
+      "name": "__blancos__",
+      "party": "otros",
+      "pacto": "No aplica",
+      "color": "#888888",
+      "elections": [
+        "parla25"
+      ]
+    },
+    {
+      "id": "__nulos__",
+      "name": "__nulos__",
+      "party": "otros",
+      "pacto": "No aplica",
+      "color": "#888888",
+      "elections": [
+        "parla25"
+      ]
+    }
+  ],
+  "partyColors": {
+    "PC": "#CC0000",
+    "PS": "#E84040",
+    "FA": "#7B1C3E",
+    "PDG": "#6B2FA0",
+    "RN": "#0057B8",
+    "UDI": "#003B8E",
+    "PRep": "#8B0000",
+    "Libertario": "#1A1A1A",
+    "PSC": "#1A1A1A",
+    "anomia": "#AAAAAA",
+    "otros": "#888888",
+    "B - VERDES, REGIONALISTAS Y HUMANISTAS": "#7B1C3E",
+    "C - UNIDAD POR CHILE": "#CC0000",
+    "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA": "#5A1030",
+    "G - PARTIDO ALIANZA VERDE POPULAR": "#2E7D32",
+    "I - PARTIDO DE LA GENTE": "#6B2FA0",
+    "J - CHILE GRANDE Y UNIDO": "#003B8E",
+    "K - CAMBIO POR CHILE": "#0057B8",
+    "No aplica": "#888888"
+  }
+}
