@@ -1,0 +1,30 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { font-family: system-ui, sans-serif; font-size: 14px; height: 100vh; display: flex; flex-direction: column; }
+
+header { background: #1a1a2e; color: #fff; padding: 8px 16px; display: flex; align-items: center; gap: 12px; }
+.logo { font-weight: 700; font-size: 16px; }
+.about { cursor: pointer; opacity: 0.7; font-size: 18px; margin-left: auto; }
+
+#app { display: flex; flex: 1; overflow: hidden; }
+
+#sidebar { width: 220px; background: #f8f8f8; border-right: 1px solid #ddd; padding: 12px; overflow-y: auto; flex-shrink: 0; }
+.filter-group { margin-bottom: 16px; }
+.filter-group label { display: block; font-weight: 600; margin-bottom: 4px; color: #333; }
+.filter-group select { width: 100%; padding: 4px; border: 1px solid #ccc; border-radius: 4px; }
+.radio-group label { font-weight: normal; display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+#toggle-anomia { margin-right: 6px; }
+
+#map-container { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+#map { flex: 1; }
+
+#detail-panel { height: 200px; background: #fff; border-top: 2px solid #ddd; padding: 12px; overflow-y: auto; }
+#detail-panel.hidden { display: none; }
+#detail-title { font-weight: 700; margin-bottom: 10px; font-size: 15px; }
+
+.bar-row { display: flex; align-items: center; margin-bottom: 6px; gap: 8px; }
+.bar-label { width: 180px; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar-track { flex: 1; background: #eee; border-radius: 3px; height: 16px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; transition: width 0.3s; }
+.bar-pct { width: 42px; text-align: right; font-size: 12px; font-weight: 600; }
+.bar-row.anomia .bar-label { color: #888; font-style: italic; }

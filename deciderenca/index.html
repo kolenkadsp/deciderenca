@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DecideRenca</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <header>
+    <span class="logo">🗺 DecideRenca</span>
+    <span class="about" title="Visor electoral para organizaciones comunitarias de Renca">ℹ</span>
+  </header>
+
+  <div id="app">
+    <aside id="sidebar">
+      <div class="filter-group">
+        <label>Elección</label>
+        <select id="sel-election"></select>
+      </div>
+      <div class="filter-group">
+        <label>Candidato / Lista</label>
+        <select id="sel-candidate"></select>
+      </div>
+      <div class="filter-group">
+        <label>Capa territorial</label>
+        <div class="radio-group">
+          <label><input type="radio" name="layer" value="macrozonas"> Macrozonas</label>
+          <label><input type="radio" name="layer" value="uvs" checked> Unidades Vecinales</label>
+          <label><input type="radio" name="layer" value="manzanas"> Manzanas</label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>
+          <input type="checkbox" id="toggle-anomia" checked>
+          Incluir blancos/nulos en mapa
+        </label>
+      </div>
+    </aside>
+
+    <main id="map-container">
+      <div id="map"></div>
+      <div id="detail-panel" class="hidden">
+        <div id="detail-title"></div>
+        <div id="detail-chart"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/chart.js"></script>
+</body>
+</html>
