@@ -29,6 +29,11 @@ CANDIDATES_STATIC = {
         "RN": "#0057B8", "UDI": "#003B8E", "PRep": "#8B0000",
         "Libertario": "#1A1A1A", "PSC": "#1A1A1A",
         "anomia": "#AAAAAA", "otros": "#888888",
+        # muni24 party names (stored as pacto)
+        "PARTIDO DE LA GENTE": "#6B2FA0",
+        "PARTIDO DEMOCRATAS CHILE": "#E67E22",
+        "INDEPENDIENTES": "#2C7BB6",
+        # parla25 pactos
         "B - VERDES, REGIONALISTAS Y HUMANISTAS": "#7B1C3E",
         "C - UNIDAD POR CHILE": "#CC0000",
         "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA": "#5A1030",
@@ -75,6 +80,56 @@ def export_geojson(gdf: gpd.GeoDataFrame, results_nested: dict,
         json.dump(geojson, f, ensure_ascii=False)
     print(f"[export] Wrote {len(features)} features → {output_path}")
 
+def _compute_renca_totals(elections: dict) -> dict:
+    """Totales reales de Renca por candidato/elección, sumando todos los locales."""
+    result = {}
+    for eid, df in elections.items():
+        agg = df.groupby(["candidato", "partido", "pacto"], as_index=False)["votos"].sum()
+        total = agg["votos"].sum()
+        result[eid] = {
+            row["candidato"]: {
+                "votos": int(row["votos"]),
+                "pct": round(float(row["votos"]) / total, 4) if total > 0 else 0,
+                "partido": str(row["partido"]),
+                "pacto": str(row["pacto"]),
+            }
+            for _, row in agg.iterrows()
+        }
+    return result
+
+
+def export_locales_geojson(locales_df, elections: dict, output_path: str):
+    """GeoJSON de puntos con un marcador por local de votación y sus resultados reales."""
+    features = []
+    for _, loc in locales_df.iterrows():
+        local_name = loc["local"]
+        el_data = {}
+        for eid, df in elections.items():
+            local_rows = df[df["local"] == local_name]
+            if local_rows.empty:
+                continue
+            total = local_rows["votos"].sum()
+            el_data[eid] = {
+                row["candidato"]: {
+                    "votos": int(row["votos"]),
+                    "pct": round(float(row["votos"]) / total, 4) if total > 0 else 0,
+                    "partido": str(row["partido"]),
+                    "pacto": str(row["pacto"]),
+                }
+                for _, row in local_rows.iterrows()
+            }
+        features.append({
+            "type": "Feature",
+            "properties": {"local": local_name, "elections": el_data},
+            "geometry": {"type": "Point", "coordinates": [float(loc["lon"]), float(loc["lat"])]},
+        })
+    geojson = {"type": "FeatureCollection", "features": features}
+    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(geojson, f, ensure_ascii=False)
+    print(f"[export] Wrote {len(features)} locales → {output_path}")
+
+
 def export_candidates(out_dir: str, elections: dict):
     dynamic = []
     for eid in ["muni24", "parla25"]:
@@ -96,6 +151,7 @@ def export_candidates(out_dir: str, elections: dict):
 
     data = dict(CANDIDATES_STATIC)
     data["candidates"] = CANDIDATES_STATIC["candidates"] + dynamic
+    data["renca_totals"] = _compute_renca_totals(elections)
 
     path = f"{out_dir}/candidates.json"
     with open(path, "w", encoding="utf-8") as f:

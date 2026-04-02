@@ -8,50 +8,53 @@
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-  <header>
-    <span class="logo">🗺 DecideRenca</span>
-    <span class="about" title="Visor electoral para organizaciones comunitarias de Renca">ℹ</span>
-  </header>
-
   <div id="app">
-    <aside id="sidebar">
-      <div class="filter-group">
-        <label>Elección</label>
-        <select id="sel-election"></select>
+
+    <!-- Panel izquierdo -->
+    <aside id="panel">
+
+      <div id="panel-header">
+        <div id="breadcrumb">
+          <span class="app-title">DecideRenca</span>
+        <span id="bc-renca" class="bc-link">Renca</span>
+          <span id="bc-sep" class="hidden"> › </span>
+          <span id="bc-zone" class="hidden"></span>
+        </div>
+        <div id="election-tabs"></div>
       </div>
-      <div class="filter-group">
-        <label>Candidato / Lista</label>
-        <select id="sel-candidate"></select>
+
+      <div id="panel-meta">
+        <span id="meta-votos"></span>
       </div>
-      <div class="filter-group">
-        <label>Capa territorial</label>
-        <div class="radio-group">
-          <label><input type="radio" name="layer" value="macrozonas"> Macrozonas</label>
-          <label><input type="radio" name="layer" value="uvs" checked> Unidades Vecinales</label>
-          <label><input type="radio" name="layer" value="manzanas"> Manzanas</label>
+
+      <div id="layer-bar">
+        <span class="layer-label">Ver por:</span>
+        <button class="layer-btn active" data-layer="uvs">U. Vecinales</button>
+        <button class="layer-btn" data-layer="macrozonas">Macrozonas</button>
+        <button class="layer-btn" data-layer="locales">Colegios</button>
+      </div>
+
+      <div id="valid-bar">
+        <span class="layer-label">Votos:</span>
+        <div id="valid-toggle">
+          <button class="vtoggle active" data-v="total">Totales</button>
+          <button class="vtoggle" data-v="valid">Válidos</button>
         </div>
       </div>
-      <div class="filter-group">
-        <label>
-          <input type="checkbox" id="toggle-anomia" checked>
-          Incluir blancos/nulos en mapa
-        </label>
-      </div>
+
+      <div id="pacto-bar"></div>
+
+      <div id="candidate-list"></div>
     </aside>
 
-    <main id="map-container">
-      <div id="map"></div>
-      <div id="detail-panel" class="hidden">
-        <div id="detail-title"></div>
-        <div id="detail-chart"></div>
-      </div>
-    </main>
+    <!-- Mapa -->
+    <div id="map"></div>
+
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/app.js"></script>
   <script src="js/map.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/chart.js"></script>
+  <script src="js/panel.js"></script>
 </body>
 </html>

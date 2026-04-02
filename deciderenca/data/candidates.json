@@ -125,7 +125,7 @@
       "name": "CAMILA INES AVILES",
       "party": "PARTIDO DEMOCRATAS CHILE",
       "pacto": "PARTIDO DEMOCRATAS CHILE",
-      "color": "#888888",
+      "color": "#E67E22",
       "elections": [
         "muni24"
       ]
@@ -135,7 +135,7 @@
       "name": "CLAUDIO NICOLAS CASTRO",
       "party": "INDEPENDIENTES",
       "pacto": "INDEPENDIENTES",
-      "color": "#888888",
+      "color": "#2C7BB6",
       "elections": [
         "muni24"
       ]
@@ -145,7 +145,7 @@
       "name": "PAUL FREDDY HERRERA",
       "party": "PARTIDO DE LA GENTE",
       "pacto": "PARTIDO DE LA GENTE",
-      "color": "#888888",
+      "color": "#6B2FA0",
       "elections": [
         "muni24"
       ]
@@ -181,8 +181,8 @@
       ]
     },
     {
-      "id": "101_valeska_oyarce_peã‘a",
-      "name": "101 VALESKA OYARCE PEÃ‘A",
+      "id": "101_valeska_oyarce_peña",
+      "name": "101 VALESKA OYARCE PEÑA",
       "party": "PSC",
       "pacto": "K - CAMBIO POR CHILE",
       "color": "#0057B8",
@@ -251,8 +251,8 @@
       ]
     },
     {
-      "id": "55_paola_cadiz_nuã‘ez",
-      "name": "55 PAOLA CADIZ NUÃ‘EZ",
+      "id": "55_paola_cadiz_nuñez",
+      "name": "55 PAOLA CADIZ NUÑEZ",
       "party": "FREVS",
       "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS",
       "color": "#7B1C3E",
@@ -421,8 +421,8 @@
       ]
     },
     {
-      "id": "72_manuel_enrique_muã‘oz_palac",
-      "name": "72 MANUEL ENRIQUE MUÃ‘OZ PALACIOS",
+      "id": "72_manuel_enrique_muñoz_palaci",
+      "name": "72 MANUEL ENRIQUE MUÑOZ PALACIOS",
       "party": "PAVP",
       "pacto": "G - PARTIDO ALIANZA VERDE POPULAR",
       "color": "#2E7D32",
@@ -571,8 +571,8 @@
       ]
     },
     {
-      "id": "87_christopher_elias_yaã‘ez_le",
-      "name": "87 CHRISTOPHER ELIAS YAÃ‘EZ LEAL",
+      "id": "87_christopher_elias_yañez_lea",
+      "name": "87 CHRISTOPHER ELIAS YAÑEZ LEAL",
       "party": "PDG",
       "pacto": "I - PARTIDO DE LA GENTE",
       "color": "#6B2FA0",
@@ -652,7 +652,7 @@
     },
     {
       "id": "95_juan_manuel_santa_cruz_camp",
-      "name": "95 JUAN MANUEL SANTA CRUZ CAMPAÃ‘A",
+      "name": "95 JUAN MANUEL SANTA CRUZ CAMPAÑA",
       "party": "EVOPOLI",
       "pacto": "J - CHILE GRANDE Y UNIDO",
       "color": "#003B8E",
@@ -701,26 +701,6 @@
       ]
     },
     {
-      "id": "total_votaciã³n",
-      "name": "Total VotaciÃ³n",
-      "party": "otros",
-      "pacto": "No aplica",
-      "color": "#888888",
-      "elections": [
-        "parla25"
-      ]
-    },
-    {
-      "id": "vã¡lidamente_emitidos",
-      "name": "VÃ¡lidamente Emitidos",
-      "party": "otros",
-      "pacto": "No aplica",
-      "color": "#888888",
-      "elections": [
-        "parla25"
-      ]
-    },
-    {
       "id": "__blancos__",
       "name": "__blancos__",
       "party": "otros",
@@ -753,6 +733,9 @@
     "PSC": "#1A1A1A",
     "anomia": "#AAAAAA",
     "otros": "#888888",
+    "PARTIDO DE LA GENTE": "#6B2FA0",
+    "PARTIDO DEMOCRATAS CHILE": "#E67E22",
+    "INDEPENDIENTES": "#2C7BB6",
     "B - VERDES, REGIONALISTAS Y HUMANISTAS": "#7B1C3E",
     "C - UNIDAD POR CHILE": "#CC0000",
     "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA": "#5A1030",
@@ -761,5 +744,459 @@
     "J - CHILE GRANDE Y UNIDO": "#003B8E",
     "K - CAMBIO POR CHILE": "#0057B8",
     "No aplica": "#888888"
+  },
+  "renca_totals": {
+    "muni24": {
+      "CAMILA INES AVILES": {
+        "votos": 16661,
+        "pct": 0.1677,
+        "partido": "PARTIDO DEMOCRATAS CHILE",
+        "pacto": "PARTIDO DEMOCRATAS CHILE"
+      },
+      "CLAUDIO NICOLAS CASTRO": {
+        "votos": 67398,
+        "pct": 0.6786,
+        "partido": "INDEPENDIENTES",
+        "pacto": "INDEPENDIENTES"
+      },
+      "PAUL FREDDY HERRERA": {
+        "votos": 4893,
+        "pct": 0.0493,
+        "partido": "PARTIDO DE LA GENTE",
+        "pacto": "PARTIDO DE LA GENTE"
+      },
+      "__blancos__": {
+        "votos": 3804,
+        "pct": 0.0383,
+        "partido": "otros",
+        "pacto": "otros"
+      },
+      "__nulos__": {
+        "votos": 6565,
+        "pct": 0.0661,
+        "partido": "otros",
+        "pacto": "otros"
+      }
+    },
+    "parla25": {
+      "100 MARGARITA GARRIDO ACEVEDO": {
+        "votos": 1774,
+        "pct": 0.0179,
+        "partido": "PNL",
+        "pacto": "K - CAMBIO POR CHILE"
+      },
+      "101 VALESKA OYARCE PEÑA": {
+        "votos": 439,
+        "pct": 0.0044,
+        "partido": "PSC",
+        "pacto": "K - CAMBIO POR CHILE"
+      },
+      "102 ALBERTO SEGUEL MENA": {
+        "votos": 389,
+        "pct": 0.0039,
+        "partido": "PSC",
+        "pacto": "K - CAMBIO POR CHILE"
+      },
+      "103 CAROLINA GARATE VERGARA": {
+        "votos": 985,
+        "pct": 0.0099,
+        "partido": "PSC",
+        "pacto": "K - CAMBIO POR CHILE"
+      },
+      "51 ALEJANDRA PEREZ ESPINA": {
+        "votos": 734,
+        "pct": 0.0074,
+        "partido": "AH",
+        "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS"
+      },
+      "52 ARIEL MATELUNA MATELUNA": {
+        "votos": 796,
+        "pct": 0.008,
+        "partido": "IND-AH",
+        "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS"
+      },
+      "53 WALESKA UBIERNA NAVARRO": {
+        "votos": 289,
+        "pct": 0.0029,
+        "partido": "AH",
+        "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS"
+      },
+      "54 JOSE LUIS VILLAGRAN BARAHONA": {
+        "votos": 333,
+        "pct": 0.0034,
+        "partido": "IND-AH",
+        "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS"
+      },
+      "55 PAOLA CADIZ NUÑEZ": {
+        "votos": 282,
+        "pct": 0.0028,
+        "partido": "FREVS",
+        "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS"
+      },
+      "56 EVELYN FARIAS AILIO": {
+        "votos": 305,
+        "pct": 0.0031,
+        "partido": "IND-FREVS",
+        "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS"
+      },
+      "57 JOSE SEPULVEDA ZELADA": {
+        "votos": 380,
+        "pct": 0.0038,
+        "partido": "IND-FREVS",
+        "pacto": "B - VERDES, REGIONALISTAS Y HUMANISTAS"
+      },
+      "58 ANDRES GIORDANO SALAZAR": {
+        "votos": 2600,
+        "pct": 0.0262,
+        "partido": "FA",
+        "pacto": "C - UNIDAD POR CHILE"
+      },
+      "59 LEONARDO JOFRE RIOS": {
+        "votos": 4563,
+        "pct": 0.0459,
+        "partido": "FA",
+        "pacto": "C - UNIDAD POR CHILE"
+      },
+      "60 BORIS BARRERA MORENO": {
+        "votos": 6479,
+        "pct": 0.0652,
+        "partido": "PCCH",
+        "pacto": "C - UNIDAD POR CHILE"
+      },
+      "61 CAROLA RIVERO CANALES": {
+        "votos": 2687,
+        "pct": 0.0271,
+        "partido": "PS",
+        "pacto": "C - UNIDAD POR CHILE"
+      },
+      "62 CESAR VALENZUELA MAASS": {
+        "votos": 6183,
+        "pct": 0.0623,
+        "partido": "PS",
+        "pacto": "C - UNIDAD POR CHILE"
+      },
+      "63 SANDRA GONZALEZ ZAMORANO": {
+        "votos": 833,
+        "pct": 0.0084,
+        "partido": "IND-PPD",
+        "pacto": "C - UNIDAD POR CHILE"
+      },
+      "64 CARLOS CUADRADO PRATS": {
+        "votos": 1550,
+        "pct": 0.0156,
+        "partido": "PPD",
+        "pacto": "C - UNIDAD POR CHILE"
+      },
+      "65 AMELIA DEL CARMEN GALLEGOS RAMIREZ": {
+        "votos": 1195,
+        "pct": 0.012,
+        "partido": "PH",
+        "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA"
+      },
+      "66 VIVIANA MONTECINOS SUAZO": {
+        "votos": 1061,
+        "pct": 0.0107,
+        "partido": "IND-PH",
+        "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA"
+      },
+      "67 ADRIAN ANTONIO LIZAMA BARRA": {
+        "votos": 410,
+        "pct": 0.0041,
+        "partido": "IND-PH",
+        "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA"
+      },
+      "68 JUAN ANDRES PINO MADRID": {
+        "votos": 521,
+        "pct": 0.0052,
+        "partido": "IND-PH",
+        "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA"
+      },
+      "69 SERGIO ENRIQUE FLORES RAMIREZ": {
+        "votos": 496,
+        "pct": 0.005,
+        "partido": "IND-PH",
+        "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA"
+      },
+      "70 ESTER BARRIENTOS VARGAS": {
+        "votos": 378,
+        "pct": 0.0038,
+        "partido": "IND-PH",
+        "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA"
+      },
+      "71 LUIS ALBERTO DONOSO URIBE": {
+        "votos": 334,
+        "pct": 0.0034,
+        "partido": "IND-PH",
+        "pacto": "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA"
+      },
+      "72 MANUEL ENRIQUE MUÑOZ PALACIOS": {
+        "votos": 404,
+        "pct": 0.0041,
+        "partido": "PAVP",
+        "pacto": "G - PARTIDO ALIANZA VERDE POPULAR"
+      },
+      "73 XUXA ALVAREZ FERNANDEZ": {
+        "votos": 610,
+        "pct": 0.0061,
+        "partido": "PAVP",
+        "pacto": "G - PARTIDO ALIANZA VERDE POPULAR"
+      },
+      "74 JOSE GUILLERMO ROJAS INOSTROZA": {
+        "votos": 220,
+        "pct": 0.0022,
+        "partido": "PAVP",
+        "pacto": "G - PARTIDO ALIANZA VERDE POPULAR"
+      },
+      "75 ISABEL PALMA PALMA": {
+        "votos": 273,
+        "pct": 0.0027,
+        "partido": "PAVP",
+        "pacto": "G - PARTIDO ALIANZA VERDE POPULAR"
+      },
+      "76 MARIA ELENA VALENZUELA PINO": {
+        "votos": 247,
+        "pct": 0.0025,
+        "partido": "PAVP",
+        "pacto": "G - PARTIDO ALIANZA VERDE POPULAR"
+      },
+      "77 LORENZO LEPIN ARANEDA": {
+        "votos": 164,
+        "pct": 0.0017,
+        "partido": "PAVP",
+        "pacto": "G - PARTIDO ALIANZA VERDE POPULAR"
+      },
+      "78 DANIEL EDUARDO CANTO GONZALEZ": {
+        "votos": 68,
+        "pct": 0.0007,
+        "partido": "PAVP",
+        "pacto": "G - PARTIDO ALIANZA VERDE POPULAR"
+      },
+      "79 ROBERTO LOBOS VILLASECA": {
+        "votos": 107,
+        "pct": 0.0011,
+        "partido": "PAVP",
+        "pacto": "G - PARTIDO ALIANZA VERDE POPULAR"
+      },
+      "80 TAMARA ALEJANDRA RAMIREZ RAMIREZ": {
+        "votos": 4311,
+        "pct": 0.0434,
+        "partido": "PDG",
+        "pacto": "I - PARTIDO DE LA GENTE"
+      },
+      "81 ANDRES RIGOBERTO CACERES BRAVO": {
+        "votos": 1497,
+        "pct": 0.0151,
+        "partido": "PDG",
+        "pacto": "I - PARTIDO DE LA GENTE"
+      },
+      "82 PAMELA DEL TRANSITO AMARO ARAYA": {
+        "votos": 1621,
+        "pct": 0.0163,
+        "partido": "PDG",
+        "pacto": "I - PARTIDO DE LA GENTE"
+      },
+      "83 FRANCISCO JAVIER LIZANA DONOSO": {
+        "votos": 1796,
+        "pct": 0.0181,
+        "partido": "PDG",
+        "pacto": "I - PARTIDO DE LA GENTE"
+      },
+      "84 CESAR ABRAHAM SUAY JEREZ": {
+        "votos": 834,
+        "pct": 0.0084,
+        "partido": "PDG",
+        "pacto": "I - PARTIDO DE LA GENTE"
+      },
+      "85 MARIA SOLEDAD LIEMPAN APELEO": {
+        "votos": 1016,
+        "pct": 0.0102,
+        "partido": "PDG",
+        "pacto": "I - PARTIDO DE LA GENTE"
+      },
+      "86 CRESCENCIO ALBERTO LOPEZ PEREZ": {
+        "votos": 315,
+        "pct": 0.0032,
+        "partido": "PDG",
+        "pacto": "I - PARTIDO DE LA GENTE"
+      },
+      "87 CHRISTOPHER ELIAS YAÑEZ LEAL": {
+        "votos": 677,
+        "pct": 0.0068,
+        "partido": "PDG",
+        "pacto": "I - PARTIDO DE LA GENTE"
+      },
+      "88 GUILLERMO RAMIREZ DIEZ": {
+        "votos": 1613,
+        "pct": 0.0162,
+        "partido": "UDI",
+        "pacto": "J - CHILE GRANDE Y UNIDO"
+      },
+      "89 JOSE MIGUEL GONZALEZ ZAPATA": {
+        "votos": 792,
+        "pct": 0.008,
+        "partido": "UDI",
+        "pacto": "J - CHILE GRANDE Y UNIDO"
+      },
+      "90 ERIKA OLIVERA DE LA FUENTE": {
+        "votos": 1355,
+        "pct": 0.0136,
+        "partido": "DEMOCRATAS",
+        "pacto": "J - CHILE GRANDE Y UNIDO"
+      },
+      "91 VERONICA MONTECINOS ORTIZ": {
+        "votos": 485,
+        "pct": 0.0049,
+        "partido": "DEMOCRATAS",
+        "pacto": "J - CHILE GRANDE Y UNIDO"
+      },
+      "92 ALDO DUQUE SANTOS": {
+        "votos": 815,
+        "pct": 0.0082,
+        "partido": "IND-RN",
+        "pacto": "J - CHILE GRANDE Y UNIDO"
+      },
+      "93 MARIA ELENA BARCO SANCHEZ": {
+        "votos": 542,
+        "pct": 0.0055,
+        "partido": "RN",
+        "pacto": "J - CHILE GRANDE Y UNIDO"
+      },
+      "94 FELIPE VIDAL CUEVAS": {
+        "votos": 1852,
+        "pct": 0.0186,
+        "partido": "IND-EVOPOLI",
+        "pacto": "J - CHILE GRANDE Y UNIDO"
+      },
+      "95 JUAN MANUEL SANTA CRUZ CAMPAÑA": {
+        "votos": 371,
+        "pct": 0.0037,
+        "partido": "EVOPOLI",
+        "pacto": "J - CHILE GRANDE Y UNIDO"
+      },
+      "96 JOSE CARLOS MEZA PEREIRA": {
+        "votos": 5237,
+        "pct": 0.0527,
+        "partido": "REPUBLICAN",
+        "pacto": "K - CAMBIO POR CHILE"
+      },
+      "97 MACARENA GARCIA-HUIDOBRO LLORT": {
+        "votos": 2683,
+        "pct": 0.027,
+        "partido": "REPUBLICAN",
+        "pacto": "K - CAMBIO POR CHILE"
+      },
+      "98 JAVIERA RODRIGUEZ PASCUAL": {
+        "votos": 3742,
+        "pct": 0.0377,
+        "partido": "REPUBLICAN",
+        "pacto": "K - CAMBIO POR CHILE"
+      },
+      "99 MAXIMILIANO MURATH MANSILLA": {
+        "votos": 2902,
+        "pct": 0.0292,
+        "partido": "PNL",
+        "pacto": "K - CAMBIO POR CHILE"
+      },
+      "__blancos__": {
+        "votos": 8094,
+        "pct": 0.0815,
+        "partido": "otros",
+        "pacto": "No aplica"
+      },
+      "__nulos__": {
+        "votos": 18671,
+        "pct": 0.188,
+        "partido": "otros",
+        "pacto": "No aplica"
+      }
+    },
+    "pres1v25": {
+      "1 FRANCO PARISI FERNANDEZ": {
+        "votos": 20245,
+        "pct": 0.2003,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      },
+      "2 JEANNETTE JARA ROMAN": {
+        "votos": 33109,
+        "pct": 0.3275,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      },
+      "3 MARCO ANTONIO ENRIQUEZ-OMINAMI GUMUCIO": {
+        "votos": 1629,
+        "pct": 0.0161,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      },
+      "4 JOHANNES KAISER BARENTS-VON HOHENHAGEN": {
+        "votos": 11838,
+        "pct": 0.1171,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      },
+      "5 JOSE ANTONIO KAST RIST": {
+        "votos": 18091,
+        "pct": 0.179,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      },
+      "6 EDUARDO ANTONIO ARTES BRICHETTI": {
+        "votos": 806,
+        "pct": 0.008,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      },
+      "7 EVELYN MATTHEI FORNET": {
+        "votos": 10014,
+        "pct": 0.0991,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      },
+      "8 HAROLD MAYNE-NICHOLLS SECUL": {
+        "votos": 1283,
+        "pct": 0.0127,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      },
+      "__blancos__": {
+        "votos": 1101,
+        "pct": 0.0109,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      },
+      "__nulos__": {
+        "votos": 2976,
+        "pct": 0.0294,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      }
+    },
+    "pres2v25": {
+      "2 JEANNETTE JARA ROMAN": {
+        "votos": 49907,
+        "pct": 0.494,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      },
+      "5 JOSE ANTONIO KAST RIST": {
+        "votos": 44234,
+        "pct": 0.4378,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      },
+      "__blancos__": {
+        "votos": 1065,
+        "pct": 0.0105,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      },
+      "__nulos__": {
+        "votos": 5825,
+        "pct": 0.0577,
+        "partido": "presidencial",
+        "pacto": "presidencial"
+      }
+    }
   }
 }
