@@ -13,7 +13,7 @@ CANDIDATES_STATIC = {
     "candidates": [
         {"id": "matthei",  "name": "Evelyn Matthei",        "party": "UDI",       "color": "#003B8E", "elections": ["pres1v25"]},
         {"id": "jara",     "name": "Jeannette Jara",         "party": "PC",        "color": "#CC0000", "elections": ["pres1v25","pres2v25"]},
-        {"id": "kast",     "name": "José Antonio Kast",      "party": "PRep",      "color": "#8B0000", "elections": ["pres1v25","pres2v25"]},
+        {"id": "kast",     "name": "José Antonio Kast",      "party": "PRep",      "color": "#003087", "elections": ["pres1v25","pres2v25"]},
         {"id": "parisi",   "name": "Franco Parisi",          "party": "PDG",       "color": "#6B2FA0", "elections": ["pres1v25"]},
         {"id": "kaiser",   "name": "Johannes Kaiser",        "party": "Libertario","color": "#1A1A1A", "elections": ["pres1v25"]},
         {"id": "enriquez", "name": "Marco Enríquez-Ominami", "party": "otros",     "color": "#888888", "elections": ["pres1v25"]},
@@ -26,7 +26,7 @@ CANDIDATES_STATIC = {
     ],
     "partyColors": {
         "PC": "#CC0000", "PS": "#E84040", "FA": "#7B1C3E", "PDG": "#6B2FA0",
-        "RN": "#0057B8", "UDI": "#003B8E", "PRep": "#8B0000",
+        "RN": "#0057B8", "UDI": "#003B8E", "PRep": "#003087",
         "Libertario": "#1A1A1A", "PSC": "#1A1A1A",
         "anomia": "#AAAAAA", "otros": "#888888",
         # muni24 party names (stored as pacto)

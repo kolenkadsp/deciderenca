@@ -45,7 +45,7 @@
       "id": "kast",
       "name": "José Antonio Kast",
       "party": "PRep",
-      "color": "#8B0000",
+      "color": "#003087",
       "elections": [
         "pres1v25",
         "pres2v25"
@@ -728,7 +728,7 @@
     "PDG": "#6B2FA0",
     "RN": "#0057B8",
     "UDI": "#003B8E",
-    "PRep": "#8B0000",
+    "PRep": "#003087",
     "Libertario": "#1A1A1A",
     "PSC": "#1A1A1A",
     "anomia": "#AAAAAA",
