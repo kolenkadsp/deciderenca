@@ -217,6 +217,31 @@ body {
 
 .arrow { font-size: 10px; color: #666; }
 
+/* ── Selection summary ────────────────────────────────── */
+#selection-summary {
+  padding: 6px 16px;
+  border-bottom: 1px solid #eee;
+  background: #f8f9ff;
+}
+
+.sel-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.sel-n    { color: #555; font-weight: 600; }
+.sel-sep  { color: #ccc; }
+.sel-votos { color: #333; font-weight: 700; }
+.sel-pct  {
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 800;
+  color: #1a1a2e;
+}
+
 /* ── Candidate list ───────────────────────────────────── */
 #candidate-list {
   flex: 1;

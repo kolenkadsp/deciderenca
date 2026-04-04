@@ -26,6 +26,7 @@ function renderPanel() {
   renderValidToggle();
   buildPactoDropdown(elData);
   buildPartidoDropdown(elData);
+  renderSelectionSummary(elData, isAggregate || isLocales);
   renderCandidateList(elData, isAggregate || isLocales);
 }
 
@@ -204,6 +205,40 @@ function formatPactoShort(p) {
     return `${parts[0]} · ${title}`;
   }
   return p.charAt(0).toUpperCase() + p.slice(1).toLowerCase();
+}
+
+// ── Sumatoria de selección ────────────────────────────────
+
+function renderSelectionSummary(elData, showExact) {
+  const { selectedPactos, selectedPartidos, validOnly } = App.state;
+  const box = document.getElementById("selection-summary");
+  const hasFilter = selectedPactos.length > 0 || selectedPartidos.length > 0;
+
+  if (!hasFilter) { box.classList.add("hidden"); box.innerHTML = ""; return; }
+
+  // Filtrar candidatos según selección activa
+  let rows = Object.entries(elData)
+    .map(([cid, v]) => ({ cid, ...v }))
+    .filter(r => r.cid !== "__blancos__" && r.cid !== "__nulos__");
+
+  if (selectedPactos.length > 0)
+    rows = rows.filter(r => selectedPactos.includes(r.pacto));
+  if (selectedPartidos.length > 0)
+    rows = rows.filter(r => selectedPartidos.includes(normalizePartido(r.partido)));
+
+  const totalVotos = rows.reduce((s, r) => s + r.votos, 0);
+  const totalPct   = rows.reduce((s, r) => s + adjustedPct(r.pct, r.cid, elData), 0);
+  const nCands     = rows.length;
+  const prefix     = showExact ? "" : "~";
+
+  box.classList.remove("hidden");
+  box.innerHTML = `
+    <div class="sel-summary">
+      <span class="sel-n">${nCands} candidato${nCands !== 1 ? "s" : ""}</span>
+      <span class="sel-sep">·</span>
+      <span class="sel-votos">${prefix}${Math.round(totalVotos).toLocaleString("es-CL")} votos</span>
+      <span class="sel-pct">${(totalPct * 100).toFixed(1)}%</span>
+    </div>`;
 }
 
 // ── Lista de candidatos ───────────────────────────────────
