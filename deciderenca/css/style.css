@@ -148,11 +148,18 @@ body {
   font-weight: 600;
 }
 
-/* ── Pacto dropdown ──────────────────────────────────────── */
-#pacto-bar {
-  padding: 6px 16px;
+/* ── Filter bar (pacto + partido) ────────────────────────── */
+#filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 16px 8px;
   border-bottom: 1px solid #eee;
-  min-height: 36px;
+}
+
+#pacto-bar,
+#partido-bar {
+  min-height: 0;
 }
 
 .pacto-dropdown { position: relative; }
@@ -289,6 +296,19 @@ body {
   font-size: 10px;
   color: #999;
   text-align: right;
+}
+
+.cand-ind-tag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  color: #888;
+  background: #eee;
+  border-radius: 3px;
+  padding: 0 3px;
+  margin-left: 4px;
+  vertical-align: middle;
+  letter-spacing: 0.3px;
 }
 
 /* ── Mapa ─────────────────────────────────────────────── */

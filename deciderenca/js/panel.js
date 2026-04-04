@@ -23,9 +23,9 @@ function renderPanel() {
     metaVotos.title = "Estimación proporcional basada en distribución por local de votación";
   }
 
-  // Toggle válidos/totales
   renderValidToggle();
   buildPactoDropdown(elData);
+  buildPartidoDropdown(elData);
   renderCandidateList(elData, isAggregate || isLocales);
 }
 
@@ -38,81 +38,155 @@ function renderValidToggle() {
   toggle.querySelector("[data-v='valid']").classList.toggle("active",  App.state.validOnly);
 }
 
+// ── Dropdown genérico ─────────────────────────────────────
+
+function buildDropdown({ containerId, items, selected, labelFn, colorFn, allLabel, onChangeAll, onChangeItem, getLabel }) {
+  const bar = document.getElementById(containerId);
+  if (!items || items.length === 0) { bar.innerHTML = ""; return; }
+
+  bar.innerHTML = `
+    <div class="pacto-dropdown">
+      <button class="pacto-trigger" id="${containerId}-trigger">
+        ${getLabel()} <span class="arrow">▾</span>
+      </button>
+      <div class="pacto-menu hidden" id="${containerId}-menu">
+        <label class="pacto-option">
+          <input type="checkbox" data-val="" ${selected.length === 0 ? "checked" : ""}> ${allLabel}
+        </label>
+        ${items.map(item => {
+          const color   = colorFn(item);
+          const checked = selected.includes(item) ? "checked" : "";
+          return `<label class="pacto-option">
+            <input type="checkbox" data-val="${item.replace(/"/g, "&quot;")}" ${checked}>
+            <span class="pacto-dot" style="background:${color}"></span> ${labelFn(item)}
+          </label>`;
+        }).join("")}
+      </div>
+    </div>`;
+
+  document.getElementById(`${containerId}-trigger`).addEventListener("click", e => {
+    e.stopPropagation();
+    document.getElementById(`${containerId}-menu`).classList.toggle("hidden");
+  });
+
+  bar.querySelectorAll("input[type=checkbox]").forEach(cb => {
+    cb.addEventListener("change", () => {
+      const val = cb.dataset.val;
+      if (val === "") {
+        onChangeAll();
+        bar.querySelectorAll("input[data-val!='']").forEach(x => x.checked = false);
+        cb.checked = true;
+      } else {
+        onChangeItem(val, cb.checked);
+        bar.querySelector("input[data-val='']").checked = selected.length === 0;
+      }
+      document.getElementById(`${containerId}-trigger`).innerHTML =
+        getLabel() + ' <span class="arrow">▾</span>';
+      renderCandidateList(
+        getElectionData(App.state.election, App.state.layer, App.state.zoneId),
+        App.state.zoneId === null || App.state.layer === "locales"
+      );
+    });
+  });
+
+  document.addEventListener("click", function closeFn(e) {
+    const menu = document.getElementById(`${containerId}-menu`);
+    if (menu && !menu.contains(e.target) && e.target.id !== `${containerId}-trigger`) {
+      menu.classList.add("hidden");
+      document.removeEventListener("click", closeFn);
+    }
+  });
+}
+
 // ── Dropdown de pactos ────────────────────────────────────
 
 function buildPactoDropdown(elData) {
-  const bar = document.getElementById("pacto-bar");
-
-  // Recopilar pactos únicos (excluye anomia y presidencial)
   const pactos = [...new Set(
     Object.values(elData)
       .filter(v => v.pacto && v.pacto !== "otros" && v.pacto !== "presidencial" && v.pacto !== "anomia")
       .map(v => v.pacto)
   )];
 
-  // Sin pactos relevantes (ej. presidencial): ocultar
-  if (pactos.length === 0) { bar.innerHTML = ""; return; }
+  if (pactos.length === 0) { document.getElementById("pacto-bar").innerHTML = ""; return; }
 
-  bar.innerHTML = `
-    <div class="pacto-dropdown">
-      <button class="pacto-trigger" id="pacto-trigger">
-        ${getPactoLabel()} <span class="arrow">▾</span>
-      </button>
-      <div class="pacto-menu hidden" id="pacto-menu">
-        <label class="pacto-option">
-          <input type="checkbox" data-pacto="" ${App.state.selectedPactos.length === 0 ? "checked" : ""}> Todos
-        </label>
-        ${pactos.map(p => {
-          const color   = App.candidates.partyColors[p] || "#888";
-          const checked = App.state.selectedPactos.includes(p) ? "checked" : "";
-          const short   = formatPactoShort(p);
-          return `<label class="pacto-option">
-            <input type="checkbox" data-pacto="${p}" ${checked}>
-            <span class="pacto-dot" style="background:${color}"></span> ${short}
-          </label>`;
-        }).join("")}
-      </div>
-    </div>`;
-
-  // Toggle menú
-  document.getElementById("pacto-trigger").addEventListener("click", e => {
-    e.stopPropagation();
-    document.getElementById("pacto-menu").classList.toggle("hidden");
-  });
-
-  // Checkboxes
-  bar.querySelectorAll("input[type=checkbox]").forEach(cb => {
-    cb.addEventListener("change", () => {
-      const pacto = cb.dataset.pacto;
-      if (pacto === "") {
-        // "Todos" → limpia selección
-        App.state.selectedPactos = [];
-        bar.querySelectorAll("input[data-pacto!='']").forEach(x => x.checked = false);
-        cb.checked = true;
+  buildDropdown({
+    containerId: "pacto-bar",
+    items: pactos,
+    selected: App.state.selectedPactos,
+    allLabel: "Todos los pactos",
+    labelFn: p => formatPactoShort(p),
+    colorFn: p => App.candidates.partyColors[p] || "#888",
+    getLabel: getPactoLabel,
+    onChangeAll: () => { App.state.selectedPactos = []; },
+    onChangeItem: (val, checked) => {
+      if (checked) {
+        App.state.selectedPactos = [...App.state.selectedPactos.filter(x => x !== val), val];
       } else {
-        if (cb.checked) {
-          App.state.selectedPactos = [...App.state.selectedPactos.filter(p => p !== pacto), pacto];
-        } else {
-          App.state.selectedPactos = App.state.selectedPactos.filter(p => p !== pacto);
-        }
-        // Desmarcar "Todos" si hay selección
-        bar.querySelector("input[data-pacto='']").checked = App.state.selectedPactos.length === 0;
+        App.state.selectedPactos = App.state.selectedPactos.filter(x => x !== val);
       }
-      document.getElementById("pacto-trigger").innerHTML =
-        getPactoLabel() + ' <span class="arrow">▾</span>';
-      renderCandidateList(getElectionData(App.state.election, App.state.layer, App.state.zoneId),
-                          App.state.zoneId === null || App.state.layer === "locales");
-    });
+    },
+  });
+}
+
+// ── Dropdown de partidos ──────────────────────────────────
+
+const PARTIDO_LABELS = {
+  "PCCH": "PC", "REPUBLICAN": "PRep", "DEMOCRATAS": "Demócratas",
+  "FREVS": "FREVS", "EVOPOLI": "Evópoli", "PDG": "PDG",
+  "PNL": "PNL", "PAVP": "PAVP", "AH": "AH", "PH": "PH",
+};
+
+function labelPartido(p) {
+  return PARTIDO_LABELS[p] || p;
+}
+
+function colorPartido(p) {
+  const colorMap = {
+    "PS": "#E84040", "PPD": "#FF6600", "PCCH": "#CC0000", "FA": "#7B1C3E",
+    "FREVS": "#2E7D32", "PH": "#9C27B0",
+    "RN": "#0057B8", "UDI": "#003B8E", "REPUBLICAN": "#003087", "EVOPOLI": "#1565C0",
+    "PDG": "#6B2FA0", "DEMOCRATAS": "#E67E22",
+    "AH": "#4CAF50", "PNL": "#00BCD4", "PAVP": "#FF9800",
+    "otros": "#888",
+  };
+  return colorMap[p] || App.candidates.partyColors[p] || "#888";
+}
+
+function buildPartidoDropdown(elData) {
+  // Recopilar partidos únicos normalizados (excluye anomia, presidencial)
+  const partidosSet = new Set();
+  Object.values(elData).forEach(v => {
+    if (!v.partido || v.partido === "otros" || v.pacto === "presidencial" || v.pacto === "anomia") return;
+    partidosSet.add(normalizePartido(v.partido));
   });
 
-  // Cerrar al click fuera
-  document.addEventListener("click", function closePacto(e) {
-    const menu = document.getElementById("pacto-menu");
-    if (menu && !menu.contains(e.target) && e.target.id !== "pacto-trigger") {
-      menu.classList.add("hidden");
-      document.removeEventListener("click", closePacto);
-    }
+  const partidos = [...partidosSet].sort((a, b) => a.localeCompare(b));
+  if (partidos.length === 0) { document.getElementById("partido-bar").innerHTML = ""; return; }
+
+  buildDropdown({
+    containerId: "partido-bar",
+    items: partidos,
+    selected: App.state.selectedPartidos,
+    allLabel: "Todos los partidos",
+    labelFn: p => labelPartido(p),
+    colorFn: p => colorPartido(p),
+    getLabel: getPartidoLabel,
+    onChangeAll: () => { App.state.selectedPartidos = []; },
+    onChangeItem: (val, checked) => {
+      if (checked) {
+        App.state.selectedPartidos = [...App.state.selectedPartidos.filter(x => x !== val), val];
+      } else {
+        App.state.selectedPartidos = App.state.selectedPartidos.filter(x => x !== val);
+      }
+    },
   });
+}
+
+function getPartidoLabel() {
+  const n = App.state.selectedPartidos.length;
+  if (n === 0) return "Todos los partidos";
+  if (n === 1) return labelPartido(App.state.selectedPartidos[0]);
+  return `${n} partidos`;
 }
 
 function getPactoLabel() {
@@ -135,12 +209,12 @@ function formatPactoShort(p) {
 // ── Lista de candidatos ───────────────────────────────────
 
 function renderCandidateList(elData, showExactVotos) {
-  const { selectedPactos, selectedCandidate, validOnly } = App.state;
+  const { selectedPactos, selectedPartidos, selectedCandidate, validOnly } = App.state;
   const list = document.getElementById("candidate-list");
 
   let rows = Object.entries(elData).map(([cid, v]) => ({ cid, ...v }));
 
-  // Filtrar por pactos si hay selección
+  // Filtro por pacto
   if (selectedPactos.length > 0) {
     rows = rows.filter(r =>
       selectedPactos.includes(r.pacto) ||
@@ -148,13 +222,21 @@ function renderCandidateList(elData, showExactVotos) {
     );
   }
 
-  // Calcular pct ajustado según validOnly
+  // Filtro por partido (normalizado: IND-PPD → PPD)
+  if (selectedPartidos.length > 0) {
+    rows = rows.filter(r =>
+      selectedPartidos.includes(normalizePartido(r.partido)) ||
+      r.cid === "__blancos__" || r.cid === "__nulos__"
+    );
+  }
+
+  // Calcular pct ajustado
   rows = rows.map(r => ({
     ...r,
     pctDisplay: adjustedPct(r.pct, r.cid, elData),
   }));
 
-  // Ordenar: candidatos por pctDisplay desc, anomia al final
+  // Ordenar: candidatos desc, anomia al final
   rows.sort((a, b) => {
     const aA = a.cid === "__blancos__" || a.cid === "__nulos__";
     const bA = b.cid === "__blancos__" || b.cid === "__nulos__";
@@ -176,13 +258,17 @@ function renderCandidateList(elData, showExactVotos) {
     const votos      = Math.round(row.votos).toLocaleString("es-CL");
     const prefix     = showExactVotos ? "" : "~";
 
+    // Etiqueta de partido normalizado si es IND-X
+    const isInd = row.partido && row.partido.startsWith("IND-");
+    const indTag = isInd ? `<span class="cand-ind-tag">IND</span>` : "";
+
     return `
       <div class="cand-row${isAnomia ? " anomia" : ""}${isSelected ? " selected" : ""}"
            data-cid="${row.cid.replace(/"/g, "&quot;")}">
         <div class="cand-color" style="background:${color}"></div>
         <div class="cand-info">
           <div class="cand-name" title="${name}">${name}</div>
-          ${party ? `<div class="cand-party">${party}</div>` : ""}
+          ${party ? `<div class="cand-party">${party}${indTag}</div>` : ""}
         </div>
         <div class="cand-bar-wrap">
           <div class="cand-bar-track">
@@ -199,7 +285,6 @@ function renderCandidateList(elData, showExactVotos) {
     row.addEventListener("click", () => {
       const cid = row.dataset.cid;
       App.state.selectedCandidate = (App.state.selectedCandidate === cid) ? null : cid;
-      // Si se selecciona candidato, vuelve a vista Renca para ver sus "mejores zonas"
       if (App.state.selectedCandidate) App.state.zoneId = null;
       updateBreadcrumb();
       renderPanel();
@@ -217,11 +302,8 @@ function candidateName(cid) {
 }
 
 function formatPartyLabel(pacto, partido, cid) {
-  // Presidenciales: resolver desde PRES_PARTY
   const presParty = presPartyFromName(cid || "");
-  if (presParty) {
-    return presParty;
-  }
+  if (presParty) return presParty;
   if (!pacto || pacto === "otros" || pacto === "presidencial" || pacto === "anomia") {
     return partido || "";
   }

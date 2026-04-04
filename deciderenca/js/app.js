@@ -21,6 +21,7 @@ const App = {
     layer: "uvs",
     zoneId: null,           // null = Renca completo
     selectedPactos: [],     // [] = todos; array de pactos activos
+    selectedPartidos: [],   // [] = todos; array de partidos normalizados activos
     selectedCandidate: null,// candidato pinchado → choropleth por ese candidato
     validOnly: false,       // false = % sobre votos totales; true = % sobre válidos (excl. blancos/nulos)
   },
@@ -99,6 +100,12 @@ function scaleVotesToReal(elData, electionId) {
   return result;
 }
 
+/** Normaliza partido: quita prefijo IND- para agrupar independientes con su partido base */
+function normalizePartido(partido) {
+  if (!partido) return "otros";
+  return partido.replace(/^IND-/, "");
+}
+
 /** Color de partido/pacto. Para presidenciales, resuelve por PRES_PARTY. */
 function partyColor(pacto, partido, candidateId) {
   // Candidatos presidenciales: buscar por ID en candidateId
@@ -145,6 +152,7 @@ function buildElectionTabs() {
     btn.addEventListener("click", () => {
       App.state.election = e.id;
       App.state.selectedPactos = [];
+      App.state.selectedPartidos = [];
       App.state.selectedCandidate = null;
       App.state.zoneId = null;
       document.querySelectorAll(".election-tab").forEach(b => b.classList.remove("active"));
@@ -165,6 +173,8 @@ function buildLayerButtons() {
       App.state.layer = btn.dataset.layer;
       App.state.zoneId = null;
       App.state.selectedCandidate = null;
+      App.state.selectedPartidos = [];
+      App.state.selectedPactos = [];
       document.querySelectorAll(".layer-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       updateBreadcrumb();
