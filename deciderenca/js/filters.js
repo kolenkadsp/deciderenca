@@ -16,7 +16,8 @@ function initFilters() {
     getCandidatesForElection(App.state.election).forEach(c => {
       const opt = document.createElement("option");
       opt.value = c.id;
-      opt.textContent = c.name || c.id;
+      const party = c.party && c.party !== "anomia" && c.party !== "presidencial" ? ` (${c.party})` : "";
+      opt.textContent = (c.name || c.id) + party;
       if (c.party === "anomia") opt.style.color = "#888";
       selCandidate.appendChild(opt);
     });
