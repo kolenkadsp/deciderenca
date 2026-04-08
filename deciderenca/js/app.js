@@ -127,17 +127,33 @@ function adjustedPct(pct, cid, elData) {
   return denom > 0 ? pct / denom : pct;
 }
 
-/** Color del candidato ganador en elData (excluye anomia). */
-function winnerColor(elData) {
+/** Color del candidato ganador en elData (excluye anomia).
+ *  Acepta arrays opcionales de pactos/partidos para filtrar. */
+function winnerColor(elData, filterPactos = [], filterPartidos = []) {
   let bestCid = null, bestPct = -1;
   Object.entries(elData).forEach(([cid, v]) => {
     if (cid === "__blancos__" || cid === "__nulos__") return;
+    if (filterPactos.length > 0 && !filterPactos.includes(v.pacto)) return;
+    if (filterPartidos.length > 0 && !filterPartidos.includes(normalizePartido(v.partido))) return;
     const p = adjustedPct(v.pct, cid, elData);
     if (p > bestPct) { bestPct = p; bestCid = cid; }
   });
   if (!bestCid) return "#cccccc";
   const v = elData[bestCid];
   return partyColor(v.pacto, v.partido, bestCid);
+}
+
+/** % del candidato ganador (considerando filtros), para calcular opacidad. */
+function winnerBestPct(elData, filterPactos = [], filterPartidos = []) {
+  let bestPct = 0;
+  Object.entries(elData).forEach(([cid, v]) => {
+    if (cid === "__blancos__" || cid === "__nulos__") return;
+    if (filterPactos.length > 0 && !filterPactos.includes(v.pacto)) return;
+    if (filterPartidos.length > 0 && !filterPartidos.includes(normalizePartido(v.partido))) return;
+    const p = adjustedPct(v.pct, cid, elData);
+    if (p > bestPct) bestPct = p;
+  });
+  return bestPct;
 }
 
 // ── Tabs de elección ─────────────────────────────────────

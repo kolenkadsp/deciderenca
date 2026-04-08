@@ -66,13 +66,14 @@ function updateMap() {
   const geojson = App.layers[App.state.layer];
   if (!geojson) return;
 
-  const { election, layer, zoneId, selectedCandidate } = App.state;
+  const { election, layer, zoneId, selectedCandidate, selectedPactos, selectedPartidos } = App.state;
   const col = ID_COL[layer];
   const isLocales = layer === "locales";
+  const hasFilter = (selectedPactos.length > 0 || selectedPartidos.length > 0) && !selectedCandidate;
 
   // Pre-calcular quintile thresholds para el candidato seleccionado
   let candThresholds = null;
-  let maxCandPct = 0.001; // sigue siendo necesario para locales (círculos)
+  let maxCandPct = 0.001;
   if (selectedCandidate) {
     const allPcts = [];
     geojson.features.forEach(f => {
@@ -85,6 +86,39 @@ function updateMap() {
       }
     });
     if (allPcts.length >= N_BINS) candThresholds = computeQuantileThresholds(allPcts);
+  }
+
+  // Pre-calcular quintile thresholds para el filtro activo (suma de pct del pacto/partido por zona)
+  let filterThresholds = null;
+  let filterColor = "#888888";
+  if (hasFilter) {
+    const allPcts = [];
+    geojson.features.forEach(f => {
+      const fd = f.properties.elections?.[election] || {};
+      let total = 0;
+      Object.entries(fd).forEach(([cid, v]) => {
+        if (cid === "__blancos__" || cid === "__nulos__") return;
+        if (selectedPactos.length > 0 && !selectedPactos.includes(v.pacto)) return;
+        if (selectedPartidos.length > 0 && !selectedPartidos.includes(normalizePartido(v.partido))) return;
+        total += adjustedPct(v.pct, cid, fd);
+      });
+      allPcts.push(total);
+    });
+    if (allPcts.length >= N_BINS) filterThresholds = computeQuantileThresholds(allPcts);
+    // Color base: ganador del filtro a nivel Renca
+    filterColor = winnerColor(App.candidates.renca_totals?.[election] || {}, selectedPactos, selectedPartidos);
+  }
+
+  /** Suma el pct del filtro activo para un elData dado */
+  function filterPct(elData) {
+    let total = 0;
+    Object.entries(elData).forEach(([cid, v]) => {
+      if (cid === "__blancos__" || cid === "__nulos__") return;
+      if (selectedPactos.length > 0 && !selectedPactos.includes(v.pacto)) return;
+      if (selectedPartidos.length > 0 && !selectedPartidos.includes(normalizePartido(v.partido))) return;
+      total += adjustedPct(v.pct, cid, elData);
+    });
+    return total;
   }
 
   _geojsonLayer = L.geoJSON(geojson, {
@@ -101,8 +135,13 @@ function updateMap() {
         const bin = candThresholds ? getBin(pct, candThresholds) : N_BINS - 1;
         color       = interpolateColor(baseColor, BIN_T[bin]);
         fillOpacity = 0.92;
+      } else if (hasFilter) {
+        const pct = filterPct(elData);
+        const bin = filterThresholds ? getBin(pct, filterThresholds) : N_BINS - 1;
+        color       = interpolateColor(filterColor, BIN_T[bin]);
+        fillOpacity = 0.92;
       } else {
-        color       = winnerColor(elData);
+        color       = winnerColor(elData, selectedPactos, selectedPartidos);
         fillOpacity = 0.85;
       }
 
@@ -128,16 +167,16 @@ function updateMap() {
         const bin = candThresholds ? getBin(pct, candThresholds) : N_BINS - 1;
         color   = interpolateColor(baseColor, BIN_T[bin]);
         opacity = 0.92;
+      } else if (hasFilter) {
+        // Coroplético del filtro: suma de pct del pacto/partido seleccionado por zona
+        const pct = filterPct(elData);
+        const bin = filterThresholds ? getBin(pct, filterThresholds) : N_BINS - 1;
+        color   = interpolateColor(filterColor, BIN_T[bin]);
+        opacity = 0.92;
       } else {
         // Modo ganador
         color = winnerColor(elData);
-        let bestPct = 0;
-        Object.entries(elData).forEach(([cid, v]) => {
-          if (cid !== "__blancos__" && cid !== "__nulos__") {
-            const p = adjustedPct(v.pct, cid, elData);
-            if (p > bestPct) bestPct = p;
-          }
-        });
+        const bestPct = winnerBestPct(elData);
         opacity = 0.3 + bestPct * 1.5;
       }
 

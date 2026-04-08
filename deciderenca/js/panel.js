@@ -87,6 +87,7 @@ function buildDropdown({ containerId, items, selected, labelFn, colorFn, allLabe
         getElectionData(App.state.election, App.state.layer, App.state.zoneId),
         App.state.zoneId === null || App.state.layer === "locales"
       );
+      updateMap();
     });
   });
 
