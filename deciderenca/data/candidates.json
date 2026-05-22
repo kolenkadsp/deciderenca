@@ -1,6 +1,11 @@
 {
   "elections": [
     {
+      "id": "conc24",
+      "label": "Concejales 2024",
+      "type": "concejal"
+    },
+    {
       "id": "muni24",
       "label": "Municipal 2024",
       "type": "alcalde"
@@ -102,6 +107,7 @@
       "party": "anomia",
       "color": "#AAAAAA",
       "elections": [
+        "conc24",
         "muni24",
         "parla25",
         "pres1v25",
@@ -114,10 +120,481 @@
       "party": "anomia",
       "color": "#666666",
       "elections": [
+        "conc24",
         "muni24",
         "parla25",
         "pres1v25",
         "pres2v25"
+      ]
+    },
+    {
+      "id": "aghata_santana_carrasco",
+      "name": "AGHATA SANTANA CARRASCO",
+      "party": "PARTIDO DEMOCRATAS CHILE",
+      "pacto": "CENTRO DEMOCRATICO",
+      "color": "#E8820C",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "angelina_del_carmen_acevedo_ta",
+      "name": "ANGELINA DEL CARMEN ACEVEDO TAPIA",
+      "party": "INDEPENDIENTES",
+      "pacto": "TU COMUNA RADICAL",
+      "color": "#FF6600",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "benjamin_esteban_leal_hernande",
+      "name": "BENJAMIN ESTEBAN LEAL HERNANDEZ",
+      "party": "PARTIDO SOCIAL CRISTIANO",
+      "pacto": "PARTIDO SOCIAL CRISTIANO E INDEPENDIENTES",
+      "color": "#1A1A1A",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "bianca_balcazar_arevalo",
+      "name": "BIANCA BALCAZAR AREVALO",
+      "party": "INDEPENDIENTES",
+      "pacto": "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES",
+      "color": "#0057B8",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "carlos_collao_vega",
+      "name": "CARLOS COLLAO VEGA",
+      "party": "PARTIDO DEMOCRATAS CHILE",
+      "pacto": "CENTRO DEMOCRATICO",
+      "color": "#E8820C",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "carolina_andrea_coñopan_araya",
+      "name": "CAROLINA ANDREA COÑOPAN ARAYA",
+      "party": "INDEPENDIENTES",
+      "pacto": "POR CHILE, SEGUIMOS",
+      "color": "#CC0000",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "catherine_araya_torrejon",
+      "name": "CATHERINE ARAYA TORREJON",
+      "party": "PARTIDO SOCIALISTA DE CHILE",
+      "pacto": "CHILE MUCHO MEJOR",
+      "color": "#888888",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "cecilia_del_carmen_gacitua_gac",
+      "name": "CECILIA DEL CARMEN GACITUA GACITUA",
+      "party": "INDEPENDIENTES",
+      "pacto": "TU COMUNA RADICAL",
+      "color": "#FF6600",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "cecilia_del_pilar_lopez_contre",
+      "name": "CECILIA DEL PILAR LOPEZ CONTRERAS",
+      "party": "PARTIDO SOCIALISTA DE CHILE",
+      "pacto": "CHILE MUCHO MEJOR",
+      "color": "#888888",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "cesar_demetrio_amestica_alarco",
+      "name": "CESAR DEMETRIO AMESTICA ALARCON",
+      "party": "FRENTE AMPLIO",
+      "pacto": "POR CHILE, SEGUIMOS",
+      "color": "#CC0000",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "cesar_monsalve_ortega",
+      "name": "CESAR MONSALVE ORTEGA",
+      "party": "UNION DEMOCRATA INDEPENDIENTE",
+      "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
+      "color": "#003B8E",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "claudio_christian_sepulveda_or",
+      "name": "CLAUDIO CHRISTIAN SEPULVEDA ORMAZABAL",
+      "party": "FRENTE AMPLIO",
+      "pacto": "POR CHILE, SEGUIMOS",
+      "color": "#CC0000",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "cristian_antonio_flores_mena",
+      "name": "CRISTIAN ANTONIO FLORES MENA",
+      "party": "RENOVACION NACIONAL",
+      "pacto": "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES",
+      "color": "#0057B8",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "dayana_arellano_salinas",
+      "name": "DAYANA ARELLANO SALINAS",
+      "party": "INDEPENDIENTES",
+      "pacto": "CHILE MUCHO MEJOR",
+      "color": "#888888",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "diego_andres_martinez_otarola",
+      "name": "DIEGO ANDRES MARTINEZ OTAROLA",
+      "party": "RENOVACION NACIONAL",
+      "pacto": "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES",
+      "color": "#0057B8",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "diego_delgado_dominguez",
+      "name": "DIEGO DELGADO DOMINGUEZ",
+      "party": "INDEPENDIENTES",
+      "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
+      "color": "#003B8E",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "diego_ignacio_fuentes_lira",
+      "name": "DIEGO IGNACIO FUENTES LIRA",
+      "party": "INDEPENDIENTES",
+      "pacto": "TU COMUNA RADICAL",
+      "color": "#FF6600",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "erica_patricia_rojas_salinas",
+      "name": "ERICA PATRICIA ROJAS SALINAS",
+      "party": "INDEPENDIENTES",
+      "pacto": "TU COMUNA RADICAL",
+      "color": "#FF6600",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "felipe_alberto_delgado_andrade",
+      "name": "FELIPE ALBERTO DELGADO ANDRADES",
+      "party": "UNION DEMOCRATA INDEPENDIENTE",
+      "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
+      "color": "#003B8E",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "florencio_enrique_kuntz_sanhue",
+      "name": "FLORENCIO ENRIQUE KUNTZ SANHUEZA",
+      "party": "PARTIDO REPUBLICANO DE CHILE",
+      "pacto": "REPUBLICANOS E INDEPENDIENTES",
+      "color": "#003087",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "francisco_javier_cataldo_santa",
+      "name": "FRANCISCO JAVIER CATALDO SANTANDER",
+      "party": "INDEPENDIENTES",
+      "pacto": "VERDES LIBERALES POR UNA COMUNA SEGURA",
+      "color": "#2E7D32",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "franco_javier_lopez_esparza",
+      "name": "FRANCO JAVIER LOPEZ ESPARZA",
+      "party": "INDEPENDIENTES",
+      "pacto": "VERDES LIBERALES POR UNA COMUNA SEGURA",
+      "color": "#2E7D32",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "gabriel_hernan_lopez_urra",
+      "name": "GABRIEL HERNAN LOPEZ URRA",
+      "party": "INDEPENDIENTES",
+      "pacto": "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES",
+      "color": "#0057B8",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "giovanni_andres_rojas_davila",
+      "name": "GIOVANNI ANDRES ROJAS DAVILA",
+      "party": "FRENTE AMPLIO",
+      "pacto": "POR CHILE, SEGUIMOS",
+      "color": "#CC0000",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "isabel_del_carmen_espinoza_gon",
+      "name": "ISABEL DEL CARMEN ESPINOZA GONZALEZ",
+      "party": "FEDERACION REGIONALISTA VERDE SOCIAL",
+      "pacto": "VERDES LIBERALES POR UNA COMUNA SEGURA",
+      "color": "#2E7D32",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "ishkra_wladimir_calderon_soto",
+      "name": "ISHKRA WLADIMIR CALDERON SOTO",
+      "party": "PARTIDO COMUNISTA DE CHILE",
+      "pacto": "POR CHILE, SEGUIMOS",
+      "color": "#CC0000",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "ismael_antonio_araya_araya",
+      "name": "ISMAEL ANTONIO ARAYA ARAYA",
+      "party": "INDEPENDIENTES",
+      "pacto": "TU COMUNA RADICAL",
+      "color": "#FF6600",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "jaime_andres_martinez_moraga",
+      "name": "JAIME ANDRES MARTINEZ MORAGA",
+      "party": "INDEPENDIENTES",
+      "pacto": "CENTRO DEMOCRATICO",
+      "color": "#E8820C",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "jesus_torrejon_segovia",
+      "name": "JESUS TORREJON SEGOVIA",
+      "party": "PARTIDO DEMOCRATA CRISTIANO",
+      "pacto": "CHILE MUCHO MEJOR",
+      "color": "#888888",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "jorge_nuñez_espinoza",
+      "name": "JORGE NUÑEZ ESPINOZA",
+      "party": "PARTIDO DEMOCRATAS CHILE",
+      "pacto": "CENTRO DEMOCRATICO",
+      "color": "#E8820C",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "jose_domingo_galaz_beltran",
+      "name": "JOSE DOMINGO GALAZ BELTRAN",
+      "party": "PARTIDO SOCIALISTA DE CHILE",
+      "pacto": "CHILE MUCHO MEJOR",
+      "color": "#888888",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "juan_carlos_godoy_maricic",
+      "name": "JUAN CARLOS GODOY MARICIC",
+      "party": "PARTIDO REPUBLICANO DE CHILE",
+      "pacto": "REPUBLICANOS E INDEPENDIENTES",
+      "color": "#003087",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "juan_pablo_araya_ibarra",
+      "name": "JUAN PABLO ARAYA IBARRA",
+      "party": "INDEPENDIENTES",
+      "pacto": "TU COMUNA RADICAL",
+      "color": "#FF6600",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "karen_andrea_serrano_concha",
+      "name": "KAREN ANDREA SERRANO CONCHA",
+      "party": "PARTIDO DEMOCRATAS CHILE",
+      "pacto": "CENTRO DEMOCRATICO",
+      "color": "#E8820C",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "leslie_elizabeth_alarcon_velas",
+      "name": "LESLIE ELIZABETH ALARCON VELASQUEZ",
+      "party": "INDEPENDIENTES",
+      "pacto": "CHILE MUCHO MEJOR",
+      "color": "#888888",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "mauricio_alfonso_lopez_muñiz",
+      "name": "MAURICIO ALFONSO LOPEZ MUÑIZ",
+      "party": "INDEPENDIENTES",
+      "pacto": "CHILE MUCHO MEJOR",
+      "color": "#888888",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "mauricio_cesar_ramirez_levin",
+      "name": "MAURICIO CESAR RAMIREZ LEVIN",
+      "party": "PARTIDO DEMOCRATA CRISTIANO",
+      "pacto": "CHILE MUCHO MEJOR",
+      "color": "#888888",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "miguel_antonio_cerda_ortiz",
+      "name": "MIGUEL ANTONIO CERDA ORTIZ",
+      "party": "INDEPENDIENTES",
+      "pacto": "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES",
+      "color": "#0057B8",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "nicolas_martin_duek_morgan",
+      "name": "NICOLAS MARTIN DUEK MORGAN",
+      "party": "UNION DEMOCRATA INDEPENDIENTE",
+      "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
+      "color": "#003B8E",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "nora_contreras_canales",
+      "name": "NORA CONTRERAS CANALES",
+      "party": "UNION DEMOCRATA INDEPENDIENTE",
+      "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
+      "color": "#003B8E",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "patricio_ignacio_ilufi_borquez",
+      "name": "PATRICIO IGNACIO ILUFI BORQUEZ",
+      "party": "INDEPENDIENTES",
+      "pacto": "CENTRO DEMOCRATICO",
+      "color": "#E8820C",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "paulina_silvana_lizama_yañez",
+      "name": "PAULINA SILVANA LIZAMA YAÑEZ",
+      "party": "INDEPENDIENTES",
+      "pacto": "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES",
+      "color": "#0057B8",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "rita_andrea_cuevas_valdes",
+      "name": "RITA ANDREA CUEVAS VALDES",
+      "party": "INDEPENDIENTES",
+      "pacto": "TU COMUNA RADICAL",
+      "color": "#FF6600",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "sandra_caceres_rios",
+      "name": "SANDRA CACERES RIOS",
+      "party": "UNION DEMOCRATA INDEPENDIENTE",
+      "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
+      "color": "#003B8E",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "victor_alejandro_vera_castillo",
+      "name": "VICTOR ALEJANDRO VERA CASTILLO",
+      "party": "PARTIDO DEMOCRATAS CHILE",
+      "pacto": "CENTRO DEMOCRATICO",
+      "color": "#E8820C",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "yamilette_carolina_garate_soto",
+      "name": "YAMILETTE CAROLINA GARATE SOTO",
+      "party": "PARTIDO COMUNISTA DE CHILE",
+      "pacto": "POR CHILE, SEGUIMOS",
+      "color": "#CC0000",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "nan",
+      "name": "nan",
+      "party": "otros",
+      "pacto": "otros",
+      "color": "#888888",
+      "elections": [
+        "conc24"
       ]
     },
     {
@@ -733,9 +1210,18 @@
     "PSC": "#1A1A1A",
     "anomia": "#AAAAAA",
     "otros": "#888888",
-    "PARTIDO DE LA GENTE": "#6B2FA0",
+    "UNION DEMOCRATA INDEPENDIENTE": "#003B8E",
+    "PARTIDO REPUBLICANO DE CHILE": "#003087",
+    "PARTIDO SOCIALISTA DE CHILE": "#E84040",
+    "PARTIDO COMUNISTA DE CHILE": "#CC0000",
+    "RENOVACION NACIONAL": "#0057B8",
+    "FRENTE AMPLIO": "#7B1C3E",
     "PARTIDO DEMOCRATAS CHILE": "#E67E22",
+    "PARTIDO DEMOCRATA CRISTIANO": "#E8820C",
+    "PARTIDO SOCIAL CRISTIANO": "#1A1A1A",
+    "FEDERACION REGIONALISTA VERDE SOCIAL": "#2E7D32",
     "INDEPENDIENTES": "#2C7BB6",
+    "PARTIDO DE LA GENTE": "#6B2FA0",
     "B - VERDES, REGIONALISTAS Y HUMANISTAS": "#7B1C3E",
     "C - UNIDAD POR CHILE": "#CC0000",
     "D - IZQUIERDA ECOLOGISTA POPULAR ANIMALISTA Y HUMANISTA": "#5A1030",
@@ -743,9 +1229,349 @@
     "I - PARTIDO DE LA GENTE": "#6B2FA0",
     "J - CHILE GRANDE Y UNIDO": "#003B8E",
     "K - CAMBIO POR CHILE": "#0057B8",
-    "No aplica": "#888888"
+    "No aplica": "#888888",
+    "POR CHILE, SEGUIMOS": "#CC0000",
+    "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES": "#003B8E",
+    "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES": "#0057B8",
+    "REPUBLICANOS E INDEPENDIENTES": "#003087",
+    "VERDES LIBERALES POR UNA COMUNA SEGURA": "#2E7D32",
+    "CENTRO DEMOCRATICO": "#E8820C",
+    "PARTIDO SOCIAL CRISTIANO E INDEPENDIENTES": "#1A1A1A",
+    "TU COMUNA RADICAL": "#FF6600",
+    "CHILE MUCHO MEJOR": "#888888"
   },
   "renca_totals": {
+    "conc24": {
+      "AGHATA SANTANA CARRASCO": {
+        "votos": 387,
+        "pct": 0.0039,
+        "partido": "PARTIDO DEMOCRATAS CHILE",
+        "pacto": "CENTRO DEMOCRATICO",
+        "elected": false
+      },
+      "ANGELINA DEL CARMEN ACEVEDO TAPIA": {
+        "votos": 1087,
+        "pct": 0.0109,
+        "partido": "INDEPENDIENTES",
+        "pacto": "TU COMUNA RADICAL",
+        "elected": false
+      },
+      "BENJAMIN ESTEBAN LEAL HERNANDEZ": {
+        "votos": 2645,
+        "pct": 0.0266,
+        "partido": "PARTIDO SOCIAL CRISTIANO",
+        "pacto": "PARTIDO SOCIAL CRISTIANO E INDEPENDIENTES",
+        "elected": false
+      },
+      "BIANCA BALCAZAR AREVALO": {
+        "votos": 840,
+        "pct": 0.0084,
+        "partido": "INDEPENDIENTES",
+        "pacto": "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES",
+        "elected": false
+      },
+      "CARLOS COLLAO VEGA": {
+        "votos": 1096,
+        "pct": 0.011,
+        "partido": "PARTIDO DEMOCRATAS CHILE",
+        "pacto": "CENTRO DEMOCRATICO",
+        "elected": false
+      },
+      "CAROLINA ANDREA COÑOPAN ARAYA": {
+        "votos": 2451,
+        "pct": 0.0246,
+        "partido": "INDEPENDIENTES",
+        "pacto": "POR CHILE, SEGUIMOS",
+        "elected": true
+      },
+      "CATHERINE ARAYA TORREJON": {
+        "votos": 1274,
+        "pct": 0.0128,
+        "partido": "PARTIDO SOCIALISTA DE CHILE",
+        "pacto": "CHILE MUCHO MEJOR",
+        "elected": false
+      },
+      "CECILIA DEL CARMEN GACITUA GACITUA": {
+        "votos": 2095,
+        "pct": 0.0211,
+        "partido": "INDEPENDIENTES",
+        "pacto": "TU COMUNA RADICAL",
+        "elected": false
+      },
+      "CECILIA DEL PILAR LOPEZ CONTRERAS": {
+        "votos": 3477,
+        "pct": 0.035,
+        "partido": "PARTIDO SOCIALISTA DE CHILE",
+        "pacto": "CHILE MUCHO MEJOR",
+        "elected": true
+      },
+      "CESAR DEMETRIO AMESTICA ALARCON": {
+        "votos": 2095,
+        "pct": 0.0211,
+        "partido": "FRENTE AMPLIO",
+        "pacto": "POR CHILE, SEGUIMOS",
+        "elected": false
+      },
+      "CESAR MONSALVE ORTEGA": {
+        "votos": 1408,
+        "pct": 0.0142,
+        "partido": "UNION DEMOCRATA INDEPENDIENTE",
+        "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
+        "elected": false
+      },
+      "CLAUDIO CHRISTIAN SEPULVEDA ORMAZABAL": {
+        "votos": 2191,
+        "pct": 0.022,
+        "partido": "FRENTE AMPLIO",
+        "pacto": "POR CHILE, SEGUIMOS",
+        "elected": false
+      },
+      "CRISTIAN ANTONIO FLORES MENA": {
+        "votos": 947,
+        "pct": 0.0095,
+        "partido": "RENOVACION NACIONAL",
+        "pacto": "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES",
+        "elected": false
+      },
+      "DAYANA ARELLANO SALINAS": {
+        "votos": 1222,
+        "pct": 0.0123,
+        "partido": "INDEPENDIENTES",
+        "pacto": "CHILE MUCHO MEJOR",
+        "elected": false
+      },
+      "DIEGO ANDRES MARTINEZ OTAROLA": {
+        "votos": 2076,
+        "pct": 0.0209,
+        "partido": "RENOVACION NACIONAL",
+        "pacto": "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES",
+        "elected": true
+      },
+      "DIEGO DELGADO DOMINGUEZ": {
+        "votos": 1061,
+        "pct": 0.0107,
+        "partido": "INDEPENDIENTES",
+        "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
+        "elected": false
+      },
+      "DIEGO IGNACIO FUENTES LIRA": {
+        "votos": 4112,
+        "pct": 0.0413,
+        "partido": "INDEPENDIENTES",
+        "pacto": "TU COMUNA RADICAL",
+        "elected": true
+      },
+      "ERICA PATRICIA ROJAS SALINAS": {
+        "votos": 1169,
+        "pct": 0.0118,
+        "partido": "INDEPENDIENTES",
+        "pacto": "TU COMUNA RADICAL",
+        "elected": false
+      },
+      "FELIPE ALBERTO DELGADO ANDRADES": {
+        "votos": 415,
+        "pct": 0.0042,
+        "partido": "UNION DEMOCRATA INDEPENDIENTE",
+        "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
+        "elected": false
+      },
+      "FLORENCIO ENRIQUE KUNTZ SANHUEZA": {
+        "votos": 4749,
+        "pct": 0.0478,
+        "partido": "PARTIDO REPUBLICANO DE CHILE",
+        "pacto": "REPUBLICANOS E INDEPENDIENTES",
+        "elected": true
+      },
+      "FRANCISCO JAVIER CATALDO SANTANDER": {
+        "votos": 1329,
+        "pct": 0.0134,
+        "partido": "INDEPENDIENTES",
+        "pacto": "VERDES LIBERALES POR UNA COMUNA SEGURA",
+        "elected": false
+      },
+      "FRANCO JAVIER LOPEZ ESPARZA": {
+        "votos": 973,
+        "pct": 0.0098,
+        "partido": "INDEPENDIENTES",
+        "pacto": "VERDES LIBERALES POR UNA COMUNA SEGURA",
+        "elected": false
+      },
+      "GABRIEL HERNAN LOPEZ URRA": {
+        "votos": 588,
+        "pct": 0.0059,
+        "partido": "INDEPENDIENTES",
+        "pacto": "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES",
+        "elected": false
+      },
+      "GIOVANNI ANDRES ROJAS DAVILA": {
+        "votos": 1994,
+        "pct": 0.02,
+        "partido": "FRENTE AMPLIO",
+        "pacto": "POR CHILE, SEGUIMOS",
+        "elected": false
+      },
+      "ISABEL DEL CARMEN ESPINOZA GONZALEZ": {
+        "votos": 1524,
+        "pct": 0.0153,
+        "partido": "FEDERACION REGIONALISTA VERDE SOCIAL",
+        "pacto": "VERDES LIBERALES POR UNA COMUNA SEGURA",
+        "elected": false
+      },
+      "ISHKRA WLADIMIR CALDERON SOTO": {
+        "votos": 2590,
+        "pct": 0.026,
+        "partido": "PARTIDO COMUNISTA DE CHILE",
+        "pacto": "POR CHILE, SEGUIMOS",
+        "elected": false
+      },
+      "ISMAEL ANTONIO ARAYA ARAYA": {
+        "votos": 2644,
+        "pct": 0.0266,
+        "partido": "INDEPENDIENTES",
+        "pacto": "TU COMUNA RADICAL",
+        "elected": true
+      },
+      "JAIME ANDRES MARTINEZ MORAGA": {
+        "votos": 600,
+        "pct": 0.006,
+        "partido": "INDEPENDIENTES",
+        "pacto": "CENTRO DEMOCRATICO",
+        "elected": false
+      },
+      "JESUS TORREJON SEGOVIA": {
+        "votos": 1148,
+        "pct": 0.0115,
+        "partido": "PARTIDO DEMOCRATA CRISTIANO",
+        "pacto": "CHILE MUCHO MEJOR",
+        "elected": false
+      },
+      "JORGE NUÑEZ ESPINOZA": {
+        "votos": 253,
+        "pct": 0.0025,
+        "partido": "PARTIDO DEMOCRATAS CHILE",
+        "pacto": "CENTRO DEMOCRATICO",
+        "elected": false
+      },
+      "JOSE DOMINGO GALAZ BELTRAN": {
+        "votos": 726,
+        "pct": 0.0073,
+        "partido": "PARTIDO SOCIALISTA DE CHILE",
+        "pacto": "CHILE MUCHO MEJOR",
+        "elected": false
+      },
+      "JUAN CARLOS GODOY MARICIC": {
+        "votos": 3613,
+        "pct": 0.0363,
+        "partido": "PARTIDO REPUBLICANO DE CHILE",
+        "pacto": "REPUBLICANOS E INDEPENDIENTES",
+        "elected": false
+      },
+      "JUAN PABLO ARAYA IBARRA": {
+        "votos": 1173,
+        "pct": 0.0118,
+        "partido": "INDEPENDIENTES",
+        "pacto": "TU COMUNA RADICAL",
+        "elected": false
+      },
+      "KAREN ANDREA SERRANO CONCHA": {
+        "votos": 806,
+        "pct": 0.0081,
+        "partido": "PARTIDO DEMOCRATAS CHILE",
+        "pacto": "CENTRO DEMOCRATICO",
+        "elected": false
+      },
+      "LESLIE ELIZABETH ALARCON VELASQUEZ": {
+        "votos": 1129,
+        "pct": 0.0114,
+        "partido": "INDEPENDIENTES",
+        "pacto": "CHILE MUCHO MEJOR",
+        "elected": false
+      },
+      "MAURICIO ALFONSO LOPEZ MUÑIZ": {
+        "votos": 658,
+        "pct": 0.0066,
+        "partido": "INDEPENDIENTES",
+        "pacto": "CHILE MUCHO MEJOR",
+        "elected": false
+      },
+      "MAURICIO CESAR RAMIREZ LEVIN": {
+        "votos": 445,
+        "pct": 0.0045,
+        "partido": "PARTIDO DEMOCRATA CRISTIANO",
+        "pacto": "CHILE MUCHO MEJOR",
+        "elected": false
+      },
+      "MIGUEL ANTONIO CERDA ORTIZ": {
+        "votos": 310,
+        "pct": 0.0031,
+        "partido": "INDEPENDIENTES",
+        "pacto": "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES",
+        "elected": false
+      },
+      "NICOLAS MARTIN DUEK MORGAN": {
+        "votos": 316,
+        "pct": 0.0032,
+        "partido": "UNION DEMOCRATA INDEPENDIENTE",
+        "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
+        "elected": false
+      },
+      "NORA CONTRERAS CANALES": {
+        "votos": 5816,
+        "pct": 0.0585,
+        "partido": "UNION DEMOCRATA INDEPENDIENTE",
+        "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
+        "elected": true
+      },
+      "PATRICIO IGNACIO ILUFI BORQUEZ": {
+        "votos": 381,
+        "pct": 0.0038,
+        "partido": "INDEPENDIENTES",
+        "pacto": "CENTRO DEMOCRATICO",
+        "elected": false
+      },
+      "PAULINA SILVANA LIZAMA YAÑEZ": {
+        "votos": 1228,
+        "pct": 0.0123,
+        "partido": "INDEPENDIENTES",
+        "pacto": "CHILE VAMOS RENOVACIÓN NACIONAL - INDEPENDIENTES",
+        "elected": false
+      },
+      "RITA ANDREA CUEVAS VALDES": {
+        "votos": 1664,
+        "pct": 0.0167,
+        "partido": "INDEPENDIENTES",
+        "pacto": "TU COMUNA RADICAL",
+        "elected": false
+      },
+      "SANDRA CACERES RIOS": {
+        "votos": 995,
+        "pct": 0.01,
+        "partido": "UNION DEMOCRATA INDEPENDIENTE",
+        "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
+        "elected": false
+      },
+      "VICTOR ALEJANDRO VERA CASTILLO": {
+        "votos": 868,
+        "pct": 0.0087,
+        "partido": "PARTIDO DEMOCRATAS CHILE",
+        "pacto": "CENTRO DEMOCRATICO",
+        "elected": false
+      },
+      "YAMILETTE CAROLINA GARATE SOTO": {
+        "votos": 2989,
+        "pct": 0.0301,
+        "partido": "PARTIDO COMUNISTA DE CHILE",
+        "pacto": "POR CHILE, SEGUIMOS",
+        "elected": true
+      },
+      "nan": {
+        "votos": 25898,
+        "pct": 0.2604,
+        "partido": "otros",
+        "pacto": "otros",
+        "elected": false
+      }
+    },
     "muni24": {
       "CAMILA INES AVILES": {
         "votos": 16661,
@@ -1198,5 +2024,21 @@
         "pacto": "presidencial"
       }
     }
+  },
+  "elected_by_election": {
+    "conc24": [
+      "YAMILETTE CAROLINA GARATE SOTO",
+      "CAROLINA ANDREA COÑOPAN ARAYA",
+      "DIEGO ANDRES MARTINEZ OTAROLA",
+      "NORA CONTRERAS CANALES",
+      "DIEGO IGNACIO FUENTES LIRA",
+      "ISMAEL ANTONIO ARAYA ARAYA",
+      "CECILIA DEL PILAR LOPEZ CONTRERAS",
+      "FLORENCIO ENRIQUE KUNTZ SANHUEZA"
+    ],
+    "muni24": [],
+    "parla25": [],
+    "pres1v25": [],
+    "pres2v25": []
   }
 }

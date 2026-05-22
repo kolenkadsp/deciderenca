@@ -134,9 +134,22 @@ function buildPactoDropdown(elData) {
 // ── Dropdown de partidos ──────────────────────────────────
 
 const PARTIDO_LABELS = {
+  // parla25: abreviaciones internas
   "PCCH": "PC", "REPUBLICAN": "PRep", "DEMOCRATAS": "Demócratas",
   "FREVS": "FREVS", "EVOPOLI": "Evópoli", "PDG": "PDG",
   "PNL": "PNL", "PAVP": "PAVP", "AH": "AH", "PH": "PH",
+  // conc24: nombres completos → abreviación
+  "UNION DEMOCRATA INDEPENDIENTE":        "UDI",
+  "PARTIDO REPUBLICANO DE CHILE":         "PRep",
+  "PARTIDO SOCIALISTA DE CHILE":          "PS",
+  "PARTIDO COMUNISTA DE CHILE":           "PC",
+  "RENOVACION NACIONAL":                  "RN",
+  "FRENTE AMPLIO":                        "FA",
+  "PARTIDO DEMOCRATAS CHILE":             "Dem.",
+  "PARTIDO DEMOCRATA CRISTIANO":          "PDC",
+  "PARTIDO SOCIAL CRISTIANO":             "PSC",
+  "FEDERACION REGIONALISTA VERDE SOCIAL": "FREVS",
+  "INDEPENDIENTES":                       "IND",
 };
 
 function labelPartido(p) {
@@ -287,6 +300,7 @@ function renderCandidateList(elData, showExactVotos) {
   list.innerHTML = rows.map(row => {
     const isAnomia   = row.cid === "__blancos__" || row.cid === "__nulos__";
     const isSelected = row.cid === selectedCandidate;
+    const isElected  = row.elected === true;
     const name       = candidateName(row.cid);
     const color      = isAnomia ? "#aaa" : partyColor(row.pacto, row.partido, row.cid);
     const pctStr     = (row.pctDisplay * 100).toFixed(1) + "%";
@@ -295,17 +309,17 @@ function renderCandidateList(elData, showExactVotos) {
     const votos      = Math.round(row.votos).toLocaleString("es-CL");
     const prefix     = showExactVotos ? "" : "~";
 
-    // Etiqueta de partido normalizado si es IND-X
     const isInd = row.partido && row.partido.startsWith("IND-");
-    const indTag = isInd ? `<span class="cand-ind-tag">IND</span>` : "";
+    const indTag     = isInd     ? `<span class="cand-ind-tag">IND</span>` : "";
+    const electedTag = isElected ? `<span class="cand-elected-tag">★ Electo/a</span>` : "";
 
     return `
-      <div class="cand-row${isAnomia ? " anomia" : ""}${isSelected ? " selected" : ""}"
+      <div class="cand-row${isAnomia ? " anomia" : ""}${isSelected ? " selected" : ""}${isElected ? " elected" : ""}"
            data-cid="${row.cid.replace(/"/g, "&quot;")}">
         <div class="cand-color" style="background:${color}"></div>
         <div class="cand-info">
           <div class="cand-name" title="${name}">${name}</div>
-          ${party ? `<div class="cand-party">${party}${indTag}</div>` : ""}
+          ${party || electedTag ? `<div class="cand-party">${party}${indTag}${electedTag}</div>` : ""}
         </div>
         <div class="cand-bar-wrap">
           <div class="cand-bar-track">
@@ -341,6 +355,10 @@ function candidateName(cid) {
 function formatPartyLabel(pacto, partido, cid) {
   const presParty = presPartyFromName(cid || "");
   if (presParty) return presParty;
+  // Nombres completos de partido (conc24) → etiqueta abreviada
+  if (partido && partido.length > 6 && PARTIDO_LABELS[partido]) {
+    return PARTIDO_LABELS[partido];
+  }
   if (!pacto || pacto === "otros" || pacto === "presidencial" || pacto === "anomia") {
     return partido || "";
   }

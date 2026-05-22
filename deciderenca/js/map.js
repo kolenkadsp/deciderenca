@@ -296,9 +296,10 @@ function buildTooltip(feature, election, layer, col, selectedCandidate) {
       if (v && v.votos > 0) votosTxt = `~${Math.round(v.votos).toLocaleString("es-CL")} votos est.`;
     }
 
+    const electedMark = elData[bestCid]?.elected ? " ★" : "";
     return `${header}
       <div class="tt-label">Más votado</div>
-      <div class="tt-cand">${name}</div>
+      <div class="tt-cand">${name}${electedMark}</div>
       <div class="tt-stats">
         <span class="tt-pct">${(bestPct * 100).toFixed(1)}%</span>
         ${votosTxt ? `<span class="tt-votos">${votosTxt}</span>` : ""}

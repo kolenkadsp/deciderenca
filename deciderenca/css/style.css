@@ -346,6 +346,24 @@ body {
   text-align: right;
 }
 
+.cand-elected-tag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  color: #7a5c00;
+  background: #fff3c4;
+  border: 1px solid #f0c040;
+  border-radius: 3px;
+  padding: 0 4px;
+  margin-left: 5px;
+  vertical-align: middle;
+  letter-spacing: 0.2px;
+}
+
+.cand-row.elected .cand-name {
+  font-weight: 700;
+}
+
 .cand-ind-tag {
   display: inline-block;
   font-size: 9px;
