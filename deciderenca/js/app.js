@@ -21,6 +21,7 @@ const App = {
     layer: "uvs",
     zoneId: null,           // null = Renca completo
     selectedPactos: [],     // [] = todos; array de pactos activos
+    selectedSubpactos: [],  // [] = todos; array de subpactos activos (solo conc24)
     selectedPartidos: [],   // [] = todos; array de partidos normalizados activos
     selectedCandidate: null,// candidato pinchado → choropleth por ese candidato
     validOnly: false,       // false = % sobre votos totales; true = % sobre válidos (excl. blancos/nulos)
@@ -128,12 +129,13 @@ function adjustedPct(pct, cid, elData) {
 }
 
 /** Color del candidato ganador en elData (excluye anomia).
- *  Acepta arrays opcionales de pactos/partidos para filtrar. */
-function winnerColor(elData, filterPactos = [], filterPartidos = []) {
+ *  Acepta arrays opcionales de pactos/subpactos/partidos para filtrar. */
+function winnerColor(elData, filterPactos = [], filterSubpactos = [], filterPartidos = []) {
   let bestCid = null, bestPct = -1;
   Object.entries(elData).forEach(([cid, v]) => {
     if (cid === "__blancos__" || cid === "__nulos__") return;
     if (filterPactos.length > 0 && !filterPactos.includes(v.pacto)) return;
+    if (filterSubpactos.length > 0 && !filterSubpactos.includes(v.subpacto)) return;
     if (filterPartidos.length > 0 && !filterPartidos.includes(normalizePartido(v.partido))) return;
     const p = adjustedPct(v.pct, cid, elData);
     if (p > bestPct) { bestPct = p; bestCid = cid; }
@@ -144,11 +146,12 @@ function winnerColor(elData, filterPactos = [], filterPartidos = []) {
 }
 
 /** % del candidato ganador (considerando filtros), para calcular opacidad. */
-function winnerBestPct(elData, filterPactos = [], filterPartidos = []) {
+function winnerBestPct(elData, filterPactos = [], filterSubpactos = [], filterPartidos = []) {
   let bestPct = 0;
   Object.entries(elData).forEach(([cid, v]) => {
     if (cid === "__blancos__" || cid === "__nulos__") return;
     if (filterPactos.length > 0 && !filterPactos.includes(v.pacto)) return;
+    if (filterSubpactos.length > 0 && !filterSubpactos.includes(v.subpacto)) return;
     if (filterPartidos.length > 0 && !filterPartidos.includes(normalizePartido(v.partido))) return;
     const p = adjustedPct(v.pct, cid, elData);
     if (p > bestPct) bestPct = p;
@@ -168,6 +171,7 @@ function buildElectionTabs() {
     btn.addEventListener("click", () => {
       App.state.election = e.id;
       App.state.selectedPactos = [];
+      App.state.selectedSubpactos = [];
       App.state.selectedPartidos = [];
       App.state.selectedCandidate = null;
       App.state.zoneId = null;
@@ -190,6 +194,7 @@ function buildLayerButtons() {
       App.state.zoneId = null;
       App.state.selectedCandidate = null;
       App.state.selectedPartidos = [];
+      App.state.selectedSubpactos = [];
       App.state.selectedPactos = [];
       document.querySelectorAll(".layer-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");

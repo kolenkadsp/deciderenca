@@ -25,6 +25,7 @@ function renderPanel() {
 
   renderValidToggle();
   buildPactoDropdown(elData);
+  buildSubpactoDropdown(elData);
   buildPartidoDropdown(elData);
   renderSelectionSummary(elData, isAggregate || isLocales);
   renderCandidateList(elData, isAggregate || isLocales);
@@ -84,10 +85,10 @@ function buildDropdown({ containerId, items, selected, labelFn, colorFn, allLabe
       }
       document.getElementById(`${containerId}-trigger`).innerHTML =
         getLabel() + ' <span class="arrow">▾</span>';
-      renderCandidateList(
-        getElectionData(App.state.election, App.state.layer, App.state.zoneId),
-        App.state.zoneId === null || App.state.layer === "locales"
-      );
+      const _ed = getElectionData(App.state.election, App.state.layer, App.state.zoneId);
+      const _exact = App.state.zoneId === null || App.state.layer === "locales";
+      renderSelectionSummary(_ed, _exact);
+      renderCandidateList(_ed, _exact);
       updateMap();
     });
   });
@@ -126,6 +127,79 @@ function buildPactoDropdown(elData) {
         App.state.selectedPactos = [...App.state.selectedPactos.filter(x => x !== val), val];
       } else {
         App.state.selectedPactos = App.state.selectedPactos.filter(x => x !== val);
+      }
+    },
+  });
+}
+
+// ── Dropdown de subpactos (solo conc24) ───────────────────
+
+const SUBPACTO_LABELS = {
+  "FRENTE AMPLIO E INDEPENDIENTES":                          "FA + IND",
+  "PARTIDO COMUNISTA DE CHILE E INDEPENDIENTES":             "PC + IND",
+  "PS E INDEPENDIENTES":                                     "PS + IND",
+  "PPD E INDEPENDIENTES":                                    "PPD + IND",
+  "PDC E INDEPENDIENTES":                                    "PDC + IND",
+  "DEMOCRATAS E INDEPENDIENTES":                             "Dem. + IND",
+  "UDI - INDEPENDIENTES":                                    "UDI + IND",
+  "PARTIDO FEDERACIÓN REGIONALISTA VERDE SOCIAL E INDEPENDIENTES": "FREVS + IND",
+  "PARTIDO LIBERAL DE CHILE E INDEPENDIENTES":               "PLC + IND",
+};
+
+function labelSubpacto(s) {
+  return SUBPACTO_LABELS[s] || s;
+}
+
+function colorSubpacto(s) {
+  const colMap = {
+    "FRENTE AMPLIO E INDEPENDIENTES": "#7B1C3E",
+    "PARTIDO COMUNISTA DE CHILE E INDEPENDIENTES": "#CC0000",
+    "PS E INDEPENDIENTES": "#E84040",
+    "PPD E INDEPENDIENTES": "#FF6600",
+    "PDC E INDEPENDIENTES": "#E8820C",
+    "DEMOCRATAS E INDEPENDIENTES": "#E67E22",
+    "UDI - INDEPENDIENTES": "#003B8E",
+    "PARTIDO FEDERACIÓN REGIONALISTA VERDE SOCIAL E INDEPENDIENTES": "#2E7D32",
+    "PARTIDO LIBERAL DE CHILE E INDEPENDIENTES": "#00BCD4",
+  };
+  return colMap[s] || "#888";
+}
+
+function getSubpactoLabel() {
+  const n = App.state.selectedSubpactos.length;
+  if (n === 0) return "Todos los subpactos";
+  if (n === 1) return labelSubpacto(App.state.selectedSubpactos[0]);
+  return `${n} subpactos`;
+}
+
+function buildSubpactoDropdown(elData) {
+  const bar = document.getElementById("subpacto-bar");
+  if (!bar) return;
+
+  // Solo para conc24 y solo si hay subpactos en los datos actuales
+  if (App.state.election !== "conc24") { bar.innerHTML = ""; return; }
+
+  const spSet = new Set();
+  Object.values(elData).forEach(v => {
+    if (v.subpacto) spSet.add(v.subpacto);
+  });
+  const subpactos = [...spSet].sort((a, b) => a.localeCompare(b));
+  if (subpactos.length === 0) { bar.innerHTML = ""; return; }
+
+  buildDropdown({
+    containerId: "subpacto-bar",
+    items: subpactos,
+    selected: App.state.selectedSubpactos,
+    allLabel: "Todos los subpactos",
+    labelFn: s => labelSubpacto(s),
+    colorFn: s => colorSubpacto(s),
+    getLabel: getSubpactoLabel,
+    onChangeAll: () => { App.state.selectedSubpactos = []; },
+    onChangeItem: (val, checked) => {
+      if (checked) {
+        App.state.selectedSubpactos = [...App.state.selectedSubpactos.filter(x => x !== val), val];
+      } else {
+        App.state.selectedSubpactos = App.state.selectedSubpactos.filter(x => x !== val);
       }
     },
   });
@@ -225,9 +299,9 @@ function formatPactoShort(p) {
 // ── Sumatoria de selección ────────────────────────────────
 
 function renderSelectionSummary(elData, showExact) {
-  const { selectedPactos, selectedPartidos, validOnly } = App.state;
+  const { selectedPactos, selectedSubpactos, selectedPartidos, validOnly } = App.state;
   const box = document.getElementById("selection-summary");
-  const hasFilter = selectedPactos.length > 0 || selectedPartidos.length > 0;
+  const hasFilter = selectedPactos.length > 0 || selectedSubpactos.length > 0 || selectedPartidos.length > 0;
 
   if (!hasFilter) { box.classList.add("hidden"); box.innerHTML = ""; return; }
 
@@ -238,6 +312,8 @@ function renderSelectionSummary(elData, showExact) {
 
   if (selectedPactos.length > 0)
     rows = rows.filter(r => selectedPactos.includes(r.pacto));
+  if (selectedSubpactos.length > 0)
+    rows = rows.filter(r => selectedSubpactos.includes(r.subpacto));
   if (selectedPartidos.length > 0)
     rows = rows.filter(r => selectedPartidos.includes(normalizePartido(r.partido)));
 
@@ -259,7 +335,7 @@ function renderSelectionSummary(elData, showExact) {
 // ── Lista de candidatos ───────────────────────────────────
 
 function renderCandidateList(elData, showExactVotos) {
-  const { selectedPactos, selectedPartidos, selectedCandidate, validOnly } = App.state;
+  const { selectedPactos, selectedSubpactos, selectedPartidos, selectedCandidate, validOnly } = App.state;
   const list = document.getElementById("candidate-list");
 
   let rows = Object.entries(elData).map(([cid, v]) => ({ cid, ...v }));
@@ -268,6 +344,14 @@ function renderCandidateList(elData, showExactVotos) {
   if (selectedPactos.length > 0) {
     rows = rows.filter(r =>
       selectedPactos.includes(r.pacto) ||
+      r.cid === "__blancos__" || r.cid === "__nulos__"
+    );
+  }
+
+  // Filtro por subpacto (solo conc24)
+  if (selectedSubpactos.length > 0) {
+    rows = rows.filter(r =>
+      selectedSubpactos.includes(r.subpacto) ||
       r.cid === "__blancos__" || r.cid === "__nulos__"
     );
   }
@@ -305,7 +389,7 @@ function renderCandidateList(elData, showExactVotos) {
     const color      = isAnomia ? "#aaa" : partyColor(row.pacto, row.partido, row.cid);
     const pctStr     = (row.pctDisplay * 100).toFixed(1) + "%";
     const barW       = Math.round((row.pctDisplay / maxPct) * 100);
-    const party      = isAnomia ? "" : formatPartyLabel(row.pacto, row.partido, row.cid);
+    const party      = isAnomia ? "" : formatPartyLabel(row.pacto, row.partido, row.cid, row.subpacto);
     const votos      = Math.round(row.votos).toLocaleString("es-CL");
     const prefix     = showExactVotos ? "" : "~";
 
@@ -352,7 +436,7 @@ function candidateName(cid) {
   return cid.replace(/_/g, " ");
 }
 
-function formatPartyLabel(pacto, partido, cid) {
+function formatPartyLabel(pacto, partido, cid, subpacto) {
   const presParty = presPartyFromName(cid || "");
   if (presParty) return presParty;
   // Nombres completos de partido (conc24) → etiqueta abreviada
@@ -361,6 +445,10 @@ function formatPartyLabel(pacto, partido, cid) {
   }
   if (!pacto || pacto === "otros" || pacto === "presidencial" || pacto === "anomia") {
     return partido || "";
+  }
+  // Si hay subpacto, mostrarlo abreviado en lugar del pacto largo
+  if (subpacto && SUBPACTO_LABELS[subpacto]) {
+    return SUBPACTO_LABELS[subpacto];
   }
   return formatPactoShort(pacto);
 }

@@ -66,10 +66,10 @@ function updateMap() {
   const geojson = App.layers[App.state.layer];
   if (!geojson) return;
 
-  const { election, layer, zoneId, selectedCandidate, selectedPactos, selectedPartidos } = App.state;
+  const { election, layer, zoneId, selectedCandidate, selectedPactos, selectedSubpactos, selectedPartidos } = App.state;
   const col = ID_COL[layer];
   const isLocales = layer === "locales";
-  const hasFilter = (selectedPactos.length > 0 || selectedPartidos.length > 0) && !selectedCandidate;
+  const hasFilter = (selectedPactos.length > 0 || selectedSubpactos.length > 0 || selectedPartidos.length > 0) && !selectedCandidate;
 
   // Pre-calcular quintile thresholds para el candidato seleccionado
   let candThresholds = null;
@@ -99,6 +99,7 @@ function updateMap() {
       Object.entries(fd).forEach(([cid, v]) => {
         if (cid === "__blancos__" || cid === "__nulos__") return;
         if (selectedPactos.length > 0 && !selectedPactos.includes(v.pacto)) return;
+        if (selectedSubpactos.length > 0 && !selectedSubpactos.includes(v.subpacto)) return;
         if (selectedPartidos.length > 0 && !selectedPartidos.includes(normalizePartido(v.partido))) return;
         total += adjustedPct(v.pct, cid, fd);
       });
@@ -106,7 +107,7 @@ function updateMap() {
     });
     if (allPcts.length >= N_BINS) filterThresholds = computeQuantileThresholds(allPcts);
     // Color base: ganador del filtro a nivel Renca
-    filterColor = winnerColor(App.candidates.renca_totals?.[election] || {}, selectedPactos, selectedPartidos);
+    filterColor = winnerColor(App.candidates.renca_totals?.[election] || {}, selectedPactos, selectedSubpactos, selectedPartidos);
   }
 
   /** Suma el pct del filtro activo para un elData dado */
@@ -115,6 +116,7 @@ function updateMap() {
     Object.entries(elData).forEach(([cid, v]) => {
       if (cid === "__blancos__" || cid === "__nulos__") return;
       if (selectedPactos.length > 0 && !selectedPactos.includes(v.pacto)) return;
+      if (selectedSubpactos.length > 0 && !selectedSubpactos.includes(v.subpacto)) return;
       if (selectedPartidos.length > 0 && !selectedPartidos.includes(normalizePartido(v.partido))) return;
       total += adjustedPct(v.pct, cid, elData);
     });
@@ -141,7 +143,7 @@ function updateMap() {
         color       = interpolateColor(filterColor, BIN_T[bin]);
         fillOpacity = 0.92;
       } else {
-        color       = winnerColor(elData, selectedPactos, selectedPartidos);
+        color       = winnerColor(elData, selectedPactos, selectedSubpactos, selectedPartidos);
         fillOpacity = 0.85;
       }
 

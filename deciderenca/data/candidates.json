@@ -588,8 +588,18 @@
       ]
     },
     {
-      "id": "nan",
-      "name": "nan",
+      "id": "__blancos__",
+      "name": "__blancos__",
+      "party": "otros",
+      "pacto": "otros",
+      "color": "#888888",
+      "elections": [
+        "conc24"
+      ]
+    },
+    {
+      "id": "__nulos__",
+      "name": "__nulos__",
       "party": "otros",
       "pacto": "otros",
       "color": "#888888",
@@ -1247,7 +1257,8 @@
         "pct": 0.0039,
         "partido": "PARTIDO DEMOCRATAS CHILE",
         "pacto": "CENTRO DEMOCRATICO",
-        "elected": false
+        "elected": false,
+        "subpacto": "DEMOCRATAS E INDEPENDIENTES"
       },
       "ANGELINA DEL CARMEN ACEVEDO TAPIA": {
         "votos": 1087,
@@ -1275,21 +1286,24 @@
         "pct": 0.011,
         "partido": "PARTIDO DEMOCRATAS CHILE",
         "pacto": "CENTRO DEMOCRATICO",
-        "elected": false
+        "elected": false,
+        "subpacto": "DEMOCRATAS E INDEPENDIENTES"
       },
       "CAROLINA ANDREA COÑOPAN ARAYA": {
         "votos": 2451,
         "pct": 0.0246,
         "partido": "INDEPENDIENTES",
         "pacto": "POR CHILE, SEGUIMOS",
-        "elected": true
+        "elected": true,
+        "subpacto": "FRENTE AMPLIO E INDEPENDIENTES"
       },
       "CATHERINE ARAYA TORREJON": {
         "votos": 1274,
         "pct": 0.0128,
         "partido": "PARTIDO SOCIALISTA DE CHILE",
         "pacto": "CHILE MUCHO MEJOR",
-        "elected": false
+        "elected": false,
+        "subpacto": "PS E INDEPENDIENTES"
       },
       "CECILIA DEL CARMEN GACITUA GACITUA": {
         "votos": 2095,
@@ -1303,28 +1317,32 @@
         "pct": 0.035,
         "partido": "PARTIDO SOCIALISTA DE CHILE",
         "pacto": "CHILE MUCHO MEJOR",
-        "elected": true
+        "elected": true,
+        "subpacto": "PS E INDEPENDIENTES"
       },
       "CESAR DEMETRIO AMESTICA ALARCON": {
         "votos": 2095,
         "pct": 0.0211,
         "partido": "FRENTE AMPLIO",
         "pacto": "POR CHILE, SEGUIMOS",
-        "elected": false
+        "elected": false,
+        "subpacto": "FRENTE AMPLIO E INDEPENDIENTES"
       },
       "CESAR MONSALVE ORTEGA": {
         "votos": 1408,
         "pct": 0.0142,
         "partido": "UNION DEMOCRATA INDEPENDIENTE",
         "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
-        "elected": false
+        "elected": false,
+        "subpacto": "UDI - INDEPENDIENTES"
       },
       "CLAUDIO CHRISTIAN SEPULVEDA ORMAZABAL": {
         "votos": 2191,
         "pct": 0.022,
         "partido": "FRENTE AMPLIO",
         "pacto": "POR CHILE, SEGUIMOS",
-        "elected": false
+        "elected": false,
+        "subpacto": "FRENTE AMPLIO E INDEPENDIENTES"
       },
       "CRISTIAN ANTONIO FLORES MENA": {
         "votos": 947,
@@ -1338,7 +1356,8 @@
         "pct": 0.0123,
         "partido": "INDEPENDIENTES",
         "pacto": "CHILE MUCHO MEJOR",
-        "elected": false
+        "elected": false,
+        "subpacto": "PPD E INDEPENDIENTES"
       },
       "DIEGO ANDRES MARTINEZ OTAROLA": {
         "votos": 2076,
@@ -1352,7 +1371,8 @@
         "pct": 0.0107,
         "partido": "INDEPENDIENTES",
         "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
-        "elected": false
+        "elected": false,
+        "subpacto": "UDI - INDEPENDIENTES"
       },
       "DIEGO IGNACIO FUENTES LIRA": {
         "votos": 4112,
@@ -1373,7 +1393,8 @@
         "pct": 0.0042,
         "partido": "UNION DEMOCRATA INDEPENDIENTE",
         "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
-        "elected": false
+        "elected": false,
+        "subpacto": "UDI - INDEPENDIENTES"
       },
       "FLORENCIO ENRIQUE KUNTZ SANHUEZA": {
         "votos": 4749,
@@ -1387,14 +1408,16 @@
         "pct": 0.0134,
         "partido": "INDEPENDIENTES",
         "pacto": "VERDES LIBERALES POR UNA COMUNA SEGURA",
-        "elected": false
+        "elected": false,
+        "subpacto": "PARTIDO FEDERACIÓN REGIONALISTA VERDE SOCIAL E INDEPENDIENTES"
       },
       "FRANCO JAVIER LOPEZ ESPARZA": {
         "votos": 973,
         "pct": 0.0098,
         "partido": "INDEPENDIENTES",
         "pacto": "VERDES LIBERALES POR UNA COMUNA SEGURA",
-        "elected": false
+        "elected": false,
+        "subpacto": "PARTIDO LIBERAL DE CHILE E INDEPENDIENTES"
       },
       "GABRIEL HERNAN LOPEZ URRA": {
         "votos": 588,
@@ -1408,21 +1431,24 @@
         "pct": 0.02,
         "partido": "FRENTE AMPLIO",
         "pacto": "POR CHILE, SEGUIMOS",
-        "elected": false
+        "elected": false,
+        "subpacto": "FRENTE AMPLIO E INDEPENDIENTES"
       },
       "ISABEL DEL CARMEN ESPINOZA GONZALEZ": {
         "votos": 1524,
         "pct": 0.0153,
         "partido": "FEDERACION REGIONALISTA VERDE SOCIAL",
         "pacto": "VERDES LIBERALES POR UNA COMUNA SEGURA",
-        "elected": false
+        "elected": false,
+        "subpacto": "PARTIDO FEDERACIÓN REGIONALISTA VERDE SOCIAL E INDEPENDIENTES"
       },
       "ISHKRA WLADIMIR CALDERON SOTO": {
         "votos": 2590,
         "pct": 0.026,
         "partido": "PARTIDO COMUNISTA DE CHILE",
         "pacto": "POR CHILE, SEGUIMOS",
-        "elected": false
+        "elected": false,
+        "subpacto": "PARTIDO COMUNISTA DE CHILE E INDEPENDIENTES"
       },
       "ISMAEL ANTONIO ARAYA ARAYA": {
         "votos": 2644,
@@ -1436,28 +1462,32 @@
         "pct": 0.006,
         "partido": "INDEPENDIENTES",
         "pacto": "CENTRO DEMOCRATICO",
-        "elected": false
+        "elected": false,
+        "subpacto": "DEMOCRATAS E INDEPENDIENTES"
       },
       "JESUS TORREJON SEGOVIA": {
         "votos": 1148,
         "pct": 0.0115,
         "partido": "PARTIDO DEMOCRATA CRISTIANO",
         "pacto": "CHILE MUCHO MEJOR",
-        "elected": false
+        "elected": false,
+        "subpacto": "PDC E INDEPENDIENTES"
       },
       "JORGE NUÑEZ ESPINOZA": {
         "votos": 253,
         "pct": 0.0025,
         "partido": "PARTIDO DEMOCRATAS CHILE",
         "pacto": "CENTRO DEMOCRATICO",
-        "elected": false
+        "elected": false,
+        "subpacto": "DEMOCRATAS E INDEPENDIENTES"
       },
       "JOSE DOMINGO GALAZ BELTRAN": {
         "votos": 726,
         "pct": 0.0073,
         "partido": "PARTIDO SOCIALISTA DE CHILE",
         "pacto": "CHILE MUCHO MEJOR",
-        "elected": false
+        "elected": false,
+        "subpacto": "PS E INDEPENDIENTES"
       },
       "JUAN CARLOS GODOY MARICIC": {
         "votos": 3613,
@@ -1478,28 +1508,32 @@
         "pct": 0.0081,
         "partido": "PARTIDO DEMOCRATAS CHILE",
         "pacto": "CENTRO DEMOCRATICO",
-        "elected": false
+        "elected": false,
+        "subpacto": "DEMOCRATAS E INDEPENDIENTES"
       },
       "LESLIE ELIZABETH ALARCON VELASQUEZ": {
         "votos": 1129,
         "pct": 0.0114,
         "partido": "INDEPENDIENTES",
         "pacto": "CHILE MUCHO MEJOR",
-        "elected": false
+        "elected": false,
+        "subpacto": "PPD E INDEPENDIENTES"
       },
       "MAURICIO ALFONSO LOPEZ MUÑIZ": {
         "votos": 658,
         "pct": 0.0066,
         "partido": "INDEPENDIENTES",
         "pacto": "CHILE MUCHO MEJOR",
-        "elected": false
+        "elected": false,
+        "subpacto": "PPD E INDEPENDIENTES"
       },
       "MAURICIO CESAR RAMIREZ LEVIN": {
         "votos": 445,
         "pct": 0.0045,
         "partido": "PARTIDO DEMOCRATA CRISTIANO",
         "pacto": "CHILE MUCHO MEJOR",
-        "elected": false
+        "elected": false,
+        "subpacto": "PDC E INDEPENDIENTES"
       },
       "MIGUEL ANTONIO CERDA ORTIZ": {
         "votos": 310,
@@ -1513,21 +1547,24 @@
         "pct": 0.0032,
         "partido": "UNION DEMOCRATA INDEPENDIENTE",
         "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
-        "elected": false
+        "elected": false,
+        "subpacto": "UDI - INDEPENDIENTES"
       },
       "NORA CONTRERAS CANALES": {
         "votos": 5816,
         "pct": 0.0585,
         "partido": "UNION DEMOCRATA INDEPENDIENTE",
         "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
-        "elected": true
+        "elected": true,
+        "subpacto": "UDI - INDEPENDIENTES"
       },
       "PATRICIO IGNACIO ILUFI BORQUEZ": {
         "votos": 381,
         "pct": 0.0038,
         "partido": "INDEPENDIENTES",
         "pacto": "CENTRO DEMOCRATICO",
-        "elected": false
+        "elected": false,
+        "subpacto": "DEMOCRATAS E INDEPENDIENTES"
       },
       "PAULINA SILVANA LIZAMA YAÑEZ": {
         "votos": 1228,
@@ -1548,25 +1585,35 @@
         "pct": 0.01,
         "partido": "UNION DEMOCRATA INDEPENDIENTE",
         "pacto": "CHILE VAMOS UDI-EVOPOLI E INDEPENDIENTES",
-        "elected": false
+        "elected": false,
+        "subpacto": "UDI - INDEPENDIENTES"
       },
       "VICTOR ALEJANDRO VERA CASTILLO": {
         "votos": 868,
         "pct": 0.0087,
         "partido": "PARTIDO DEMOCRATAS CHILE",
         "pacto": "CENTRO DEMOCRATICO",
-        "elected": false
+        "elected": false,
+        "subpacto": "DEMOCRATAS E INDEPENDIENTES"
       },
       "YAMILETTE CAROLINA GARATE SOTO": {
         "votos": 2989,
         "pct": 0.0301,
         "partido": "PARTIDO COMUNISTA DE CHILE",
         "pacto": "POR CHILE, SEGUIMOS",
-        "elected": true
+        "elected": true,
+        "subpacto": "PARTIDO COMUNISTA DE CHILE E INDEPENDIENTES"
       },
-      "nan": {
-        "votos": 25898,
-        "pct": 0.2604,
+      "__blancos__": {
+        "votos": 9640,
+        "pct": 0.0969,
+        "partido": "otros",
+        "pacto": "otros",
+        "elected": false
+      },
+      "__nulos__": {
+        "votos": 16258,
+        "pct": 0.1635,
         "partido": "otros",
         "pacto": "otros",
         "elected": false
@@ -2027,14 +2074,14 @@
   },
   "elected_by_election": {
     "conc24": [
+      "CECILIA DEL PILAR LOPEZ CONTRERAS",
       "YAMILETTE CAROLINA GARATE SOTO",
-      "CAROLINA ANDREA COÑOPAN ARAYA",
-      "DIEGO ANDRES MARTINEZ OTAROLA",
       "NORA CONTRERAS CANALES",
       "DIEGO IGNACIO FUENTES LIRA",
+      "DIEGO ANDRES MARTINEZ OTAROLA",
       "ISMAEL ANTONIO ARAYA ARAYA",
-      "CECILIA DEL PILAR LOPEZ CONTRERAS",
-      "FLORENCIO ENRIQUE KUNTZ SANHUEZA"
+      "FLORENCIO ENRIQUE KUNTZ SANHUEZA",
+      "CAROLINA ANDREA COÑOPAN ARAYA"
     ],
     "muni24": [],
     "parla25": [],

@@ -98,20 +98,44 @@ def _load_conc24(data_dir: str) -> pd.DataFrame:
     renca = df[df["Comuna"].str.upper().str.strip() == "RENCA"].copy()
 
     # Nombre completo desde columnas separadas
-    renca["candidato"] = (
-        renca["Nombres"].str.strip() + " " +
-        renca["Primer apellido"].str.strip() + " " +
-        renca["Segundo apellido"].str.strip()
-    ).str.strip()
+    # Usamos fillna("") para evitar "nan" al concatenar celdas vacías
+    nombres    = renca["Nombres"].fillna("").str.strip()
+    apellido1  = renca["Primer apellido"].fillna("").str.strip()
+    apellido2  = renca["Segundo apellido"].fillna("").str.strip()
+    renca["candidato"] = (nombres + " " + apellido1 + " " + apellido2).str.strip()
+
+    # Filas con nombre vacío son resúmenes (blancos/nulos en otro formato);
+    # las mapeamos por contenido de columnas conocidas o las descartamos.
+    def _resolve_conc24_candidato(row):
+        cand = row["candidato"]
+        if cand:
+            return cand
+        # Si alguna columna de texto lleva "BLANCO" o "NULO", mapeamos
+        for col in row.index:
+            val = str(row[col]).upper()
+            if "BLANCO" in val:
+                return "VOTOS EN BLANCO"
+            if "NULO" in val:
+                return "VOTOS NULOS"
+        return None   # se descartará en el siguiente paso
+
+    renca["candidato"] = renca.apply(_resolve_conc24_candidato, axis=1)
+    # Descartar filas sin nombre resuelto
+    renca = renca[renca["candidato"].notna() & (renca["candidato"] != "")].copy()
 
     renca = renca.rename(columns={
         "Local": "local",
         "Partido": "partido",
         "Pacto": "pacto",
+        "Subpacto": "subpacto",
         "votos": "votos",
     })
     renca["votos"] = pd.to_numeric(renca["votos"], errors="coerce").fillna(0)
     renca["election"] = "conc24"
+
+    # Normalizar subpacto: "---" → None (sin subpacto)
+    renca["subpacto"] = renca["subpacto"].fillna("").str.strip()
+    renca["subpacto"] = renca["subpacto"].apply(lambda s: None if s in ("---", "", "-") else s)
 
     # elected: True si alguna fila del candidato tiene cargo == 'CONCEJAL'
     elected_set = set(
@@ -119,7 +143,7 @@ def _load_conc24(data_dir: str) -> pd.DataFrame:
     )
     renca["elected"] = renca["candidato"].isin(elected_set)
 
-    return renca[["election", "local", "candidato", "votos", "partido", "pacto", "elected"]]
+    return renca[["election", "local", "candidato", "votos", "partido", "pacto", "subpacto", "elected"]]
 
 
 def load_elections(data_dir: str) -> dict:
@@ -142,18 +166,23 @@ def load_elections(data_dir: str) -> dict:
         df["pacto"]     = df["pacto"].fillna("otros").astype(str).str.strip()
         df["votos"]     = pd.to_numeric(df["votos"], errors="coerce").fillna(0)
 
-        # Preservar elected antes del groupby (solo conc24 lo tiene)
-        has_elected = "elected" in df.columns
+        # Preservar elected y subpacto antes del groupby (solo conc24 los tiene)
+        has_elected  = "elected"  in df.columns
+        has_subpacto = "subpacto" in df.columns
         if has_elected:
-            elected_map = df.groupby("candidato")["elected"].any()
+            elected_map  = df.groupby("candidato")["elected"].any()
+        if has_subpacto:
+            # subpacto es constante por candidato; tomamos el primero no-nulo
+            subpacto_map = (df.dropna(subset=["subpacto"])
+                              .groupby("candidato")["subpacto"].first())
 
-        df = df.groupby(
-            ["election", "local", "candidato", "partido", "pacto"],
-            as_index=False
-        )["votos"].sum()
+        group_cols = ["election", "local", "candidato", "partido", "pacto"]
+        df = df.groupby(group_cols, as_index=False)["votos"].sum()
 
         if has_elected:
-            df["elected"] = df["candidato"].map(elected_map).fillna(False)
+            df["elected"]  = df["candidato"].map(elected_map).fillna(False)
+        if has_subpacto:
+            df["subpacto"] = df["candidato"].map(subpacto_map)  # None si no tiene
 
         result[eid] = df
     return result

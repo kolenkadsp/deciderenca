@@ -86,6 +86,8 @@ def _results_to_nested(results_df: pd.DataFrame, id_col: str,
             "partido": str(row.get("partido", "otros")),
             "pacto":   str(row.get("pacto",   "otros")),
         }
+        if pd.notna(row.get("subpacto")):
+            entry["subpacto"] = str(row["subpacto"])
         # Añadir elected si corresponde (lookup desde renca_totals)
         if elected_by_election and eid in elected_by_election:
             if cand in elected_by_election[eid]:
@@ -118,16 +120,23 @@ def _compute_renca_totals(elections: dict) -> dict:
     """
     result = {}
     for eid, df in elections.items():
-        has_elected = "elected" in df.columns
-        group_cols  = ["candidato", "partido", "pacto"]
+        has_elected  = "elected"  in df.columns
+        has_subpacto = "subpacto" in df.columns
+        group_cols   = ["candidato", "partido", "pacto"]
         if has_elected:
             group_cols.append("elected")
 
         agg   = df.groupby(group_cols, as_index=False)["votos"].sum()
         total = agg["votos"].sum()
 
+        # Mapa subpacto por candidato (fuera del groupby para preservar None)
+        if has_subpacto:
+            sub_map = (df.dropna(subset=["subpacto"])
+                         .groupby("candidato")["subpacto"].first())
+
         result[eid] = {}
         for _, row in agg.iterrows():
+            cid = row["candidato"]
             entry = {
                 "votos":   int(row["votos"]),
                 "pct":     round(float(row["votos"]) / total, 4) if total > 0 else 0,
@@ -136,7 +145,9 @@ def _compute_renca_totals(elections: dict) -> dict:
             }
             if has_elected:
                 entry["elected"] = bool(row["elected"])
-            result[eid][row["candidato"]] = entry
+            if has_subpacto and cid in sub_map:
+                entry["subpacto"] = str(sub_map[cid])
+            result[eid][cid] = entry
     return result
 
 
@@ -162,6 +173,8 @@ def export_locales_geojson(locales_df, elections: dict, output_path: str,
                     "partido": str(row["partido"]),
                     "pacto":   str(row["pacto"]),
                 }
+                if pd.notna(row.get("subpacto")):
+                    entry["subpacto"] = str(row["subpacto"])
                 if elected_by_election and eid in elected_by_election:
                     if row["candidato"] in elected_by_election[eid]:
                         entry["elected"] = True
