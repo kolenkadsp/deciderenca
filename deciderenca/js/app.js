@@ -236,5 +236,49 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // ── Mobile: bottom sheet toggle ───────────────────────
+  const panelHandle = document.getElementById("panel-handle");
+  if (panelHandle) {
+    panelHandle.addEventListener("click", () => {
+      const panel = document.getElementById("panel");
+      const isOpen = panel.classList.toggle("panel-open");
+      // Invalidar mapa tras la animación para que redibuje tiles
+      setTimeout(() => { if (typeof _map !== "undefined" && _map) _map.invalidateSize(); }, 400);
+      // Actualizar flecha
+      const chevron = document.getElementById("handle-chevron");
+      if (chevron) chevron.textContent = isOpen ? "▼" : "▲";
+    });
+  }
+
   init();
 });
+
+/** Actualiza el label del handle mobile con el candidato/zona actual */
+function updateHandleLabel() {
+  const label = document.getElementById("handle-label");
+  if (!label) return;
+  const { election, layer, zoneId, selectedCandidate } = App.state;
+  if (selectedCandidate) {
+    label.textContent = candidateName ? candidateName(selectedCandidate) : selectedCandidate;
+    return;
+  }
+  if (zoneId) {
+    const layerLabel = { uvs: "UV", macrozonas: "Macrozona", locales: "" }[layer] || "";
+    label.textContent = layerLabel ? `${layerLabel} ${zoneId}` : zoneId;
+    return;
+  }
+  // Mostrar % del ganador en Renca
+  const elData = App.candidates?.renca_totals?.[election] || {};
+  let bestCid = null, bestPct = -1;
+  Object.entries(elData).forEach(([cid, v]) => {
+    if (cid !== "__blancos__" && cid !== "__nulos__" && v.pct > bestPct) {
+      bestPct = v.pct; bestCid = cid;
+    }
+  });
+  if (bestCid) {
+    const shortName = bestCid.split(" ").slice(0, 2).join(" ");
+    label.textContent = `${shortName} · ${(bestPct*100).toFixed(1)}%`;
+  } else {
+    label.textContent = "Resultados";
+  }
+}

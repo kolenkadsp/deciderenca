@@ -3,16 +3,19 @@
 body {
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 14px;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #app {
   display: flex;
-  height: 100vh;
+  height: 100dvh;
 }
 
-/* ── Panel izquierdo ──────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════
+   PANEL — desktop (izquierda)
+   ═══════════════════════════════════════════════════════════ */
 #panel {
   width: 340px;
   flex-shrink: 0;
@@ -24,10 +27,14 @@ body {
   overflow: hidden;
 }
 
+/* Handle solo visible en mobile */
+#panel-handle { display: none; }
+
 #panel-header {
   background: #1a1a2e;
   color: #fff;
   padding: 12px 16px 10px;
+  flex-shrink: 0;
 }
 
 #breadcrumb {
@@ -70,10 +77,11 @@ body {
   border: 1px solid rgba(255,255,255,0.25);
   color: rgba(255,255,255,0.75);
   border-radius: 4px;
-  padding: 4px 9px;
+  padding: 5px 9px;
   font-size: 11px;
   cursor: pointer;
   transition: background 0.15s;
+  white-space: nowrap;
 }
 
 .election-tab.active {
@@ -88,6 +96,7 @@ body {
   font-size: 12px;
   color: #666;
   border-bottom: 1px solid #eee;
+  flex-shrink: 0;
 }
 
 /* ── Layer bar ────────────────────────────────────────── */
@@ -97,18 +106,21 @@ body {
   gap: 6px;
   padding: 8px 16px;
   border-bottom: 1px solid #eee;
+  flex-shrink: 0;
 }
 
-.layer-label { color: #888; font-size: 12px; }
+.layer-label { color: #888; font-size: 12px; white-space: nowrap; }
 
 .layer-btn {
   border: 1px solid #ddd;
   background: #f5f5f5;
   border-radius: 20px;
-  padding: 3px 11px;
+  padding: 4px 11px;
   font-size: 12px;
   cursor: pointer;
   transition: all 0.15s;
+  white-space: nowrap;
+  min-height: 30px;
 }
 
 .layer-btn.active {
@@ -117,13 +129,14 @@ body {
   border-color: #1a1a2e;
 }
 
-/* ── Votos toggle ─────────────────────────────────────────── */
+/* ── Votos toggle ─────────────────────────────────────── */
 #valid-bar {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
   border-bottom: 1px solid #eee;
+  flex-shrink: 0;
 }
 
 #valid-toggle {
@@ -136,10 +149,11 @@ body {
 .vtoggle {
   border: none;
   background: #f5f5f5;
-  padding: 3px 10px;
+  padding: 4px 12px;
   font-size: 12px;
   cursor: pointer;
   transition: background 0.15s;
+  min-height: 30px;
 }
 
 .vtoggle.active {
@@ -148,13 +162,14 @@ body {
   font-weight: 600;
 }
 
-/* ── Filter bar (pacto + partido) ────────────────────────── */
+/* ── Filter bar (pacto + partido) ─────────────────────── */
 #filter-bar {
   display: flex;
   flex-direction: column;
   gap: 4px;
   padding: 6px 16px 8px;
   border-bottom: 1px solid #eee;
+  flex-shrink: 0;
 }
 
 #pacto-bar,
@@ -168,14 +183,16 @@ body {
   border: 1px solid #ddd;
   background: #f5f5f5;
   border-radius: 6px;
-  padding: 4px 10px;
+  padding: 5px 10px;
   font-size: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 6px;
-  min-width: 180px;
+  width: 100%;
   justify-content: space-between;
+  min-height: 34px;
+  text-align: left;
 }
 
 .pacto-trigger:hover { background: #ebebeb; }
@@ -188,10 +205,11 @@ body {
   border: 1px solid #ddd;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  z-index: 100;
+  z-index: 500;
   min-width: 220px;
+  width: 100%;
   padding: 4px 0;
-  max-height: 260px;
+  max-height: 240px;
   overflow-y: auto;
 }
 
@@ -199,14 +217,16 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 12px;
+  padding: 8px 12px;
   font-size: 12px;
   cursor: pointer;
   user-select: none;
+  min-height: 38px;
 }
 
 .pacto-option:hover { background: #f5f5f5; }
-.pacto-option input { cursor: pointer; flex-shrink: 0; }
+.pacto-option:active { background: #eaeeff; }
+.pacto-option input { cursor: pointer; flex-shrink: 0; width: 16px; height: 16px; }
 
 .pacto-dot {
   width: 8px;
@@ -222,6 +242,7 @@ body {
   padding: 6px 16px;
   border-bottom: 1px solid #eee;
   background: #f8f9ff;
+  flex-shrink: 0;
 }
 
 .sel-summary {
@@ -246,22 +267,24 @@ body {
 #candidate-list {
   flex: 1;
   overflow-y: auto;
-  padding: 6px 0;
+  padding: 4px 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 .cand-row {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 16px;
+  padding: 8px 16px;
   cursor: default;
   transition: background 0.1s;
 }
 
 .cand-row:not(.anomia) { cursor: pointer; }
-.cand-row:hover { background: #f0f4ff; }
-.cand-row.anomia { opacity: 0.55; }
-.cand-row.selected { background: #e8eeff; border-left: 3px solid #1a1a2e; padding-left: 13px; }
+.cand-row:hover        { background: #f0f4ff; }
+.cand-row:active       { background: #e4ebff; }
+.cand-row.anomia       { opacity: 0.55; }
+.cand-row.selected     { background: #e8eeff; border-left: 3px solid #1a1a2e; padding-left: 13px; }
 
 .cand-color {
   width: 10px;
@@ -413,3 +436,182 @@ body {
 
 /* ── Helpers ──────────────────────────────────────────── */
 .hidden { display: none !important; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — mobile (≤ 768px)
+   El panel se convierte en bottom sheet sobre el mapa
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  body { font-size: 15px; }
+
+  #app {
+    display: block;
+    position: relative;
+  }
+
+  /* Mapa llena toda la pantalla */
+  #map {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  /* ── Bottom sheet ─────────────────────────────────── */
+  #panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    /* Solo el handle visible: ~58px */
+    height: 58px;
+    z-index: 1000;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.22);
+    transition: height 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+    overflow: hidden;
+    /* Desactivar flex-shrink heredado */
+    flex-shrink: unset;
+  }
+
+  /* Estado expandido */
+  #panel.panel-open {
+    height: 78dvh;
+  }
+
+  /* ── Handle de arrastre ─────────────────────────── */
+  #panel-handle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 16px 6px;
+    cursor: pointer;
+    flex-shrink: 0;
+    user-select: none;
+    background: #1a1a2e;
+    min-height: 58px;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .handle-bar {
+    width: 36px;
+    height: 4px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  #handle-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: rgba(255,255,255,0.9);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  #handle-label {
+    flex: 1;
+  }
+
+  #handle-chevron {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    transition: transform 0.3s;
+  }
+
+  #panel.panel-open #handle-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* ── Scroll interno del panel ───────────────────── */
+  #panel-header {
+    padding: 10px 16px 8px;
+  }
+
+  /* Tabs scrollan horizontalmente */
+  #election-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+  #election-tabs::-webkit-scrollbar { display: none; }
+
+  .election-tab {
+    font-size: 12px;
+    padding: 6px 10px;
+    flex-shrink: 0;
+    min-height: 34px;
+  }
+
+  #panel-meta { padding: 6px 16px; font-size: 13px; }
+
+  #layer-bar {
+    padding: 6px 16px;
+    gap: 6px;
+  }
+
+  .layer-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    min-height: 36px;
+  }
+
+  #valid-bar { padding: 6px 16px; }
+
+  .vtoggle {
+    padding: 6px 14px;
+    font-size: 13px;
+    min-height: 36px;
+  }
+
+  #filter-bar { padding: 6px 16px 8px; }
+
+  /* Dropdowns abren hacia ARRIBA en mobile */
+  .pacto-menu {
+    top: auto;
+    bottom: calc(100% + 4px);
+    max-height: 220px;
+  }
+
+  .pacto-trigger {
+    font-size: 13px;
+    min-height: 38px;
+    padding: 6px 12px;
+  }
+
+  .pacto-option {
+    padding: 10px 12px;
+    font-size: 13px;
+    min-height: 44px;
+  }
+
+  /* Filas de candidatos más amplias al tacto */
+  .cand-row {
+    padding: 10px 16px;
+    gap: 10px;
+  }
+
+  .cand-name { font-size: 14px; }
+  .cand-party { font-size: 12px; }
+  .cand-pct { font-size: 13px; }
+  .cand-votos { font-size: 11px; }
+
+  .cand-color {
+    width: 12px;
+    height: 12px;
+  }
+
+  .cand-bar-wrap { width: 90px; }
+
+  /* Zoom controls de Leaflet — empujar arriba del handle */
+  .leaflet-top.leaflet-left {
+    top: 12px;
+  }
+}

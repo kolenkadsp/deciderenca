@@ -10,13 +10,22 @@
 <body>
   <div id="app">
 
-    <!-- Panel izquierdo -->
+    <!-- Panel izquierdo / bottom sheet mobile -->
     <aside id="panel">
+
+      <!-- Handle solo visible en mobile -->
+      <div id="panel-handle" role="button" aria-label="Mostrar resultados">
+        <div class="handle-bar"></div>
+        <div id="handle-summary">
+          <span id="handle-label">Resultados</span>
+          <span id="handle-chevron">▲</span>
+        </div>
+      </div>
 
       <div id="panel-header">
         <div id="breadcrumb">
           <span class="app-title">DecideRenca</span>
-        <span id="bc-renca" class="bc-link">Renca</span>
+          <span id="bc-renca" class="bc-link">Renca</span>
           <span id="bc-sep" class="hidden"> › </span>
           <span id="bc-zone" class="hidden"></span>
         </div>

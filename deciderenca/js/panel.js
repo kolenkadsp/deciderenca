@@ -28,6 +28,7 @@ function renderPanel() {
   buildPartidoDropdown(elData);
   renderSelectionSummary(elData, isAggregate || isLocales);
   renderCandidateList(elData, isAggregate || isLocales);
+  if (typeof updateHandleLabel === "function") updateHandleLabel();
 }
 
 // ── Toggle Votos Totales / Válidos ────────────────────────
