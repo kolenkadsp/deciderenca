@@ -192,23 +192,28 @@ function updateMap() {
     onEachFeature(feature, lyr) {
       const fzoneId = feature.properties[col];
 
-      // Tooltip hover
+      // En touch: tooltip solo al hacer click (no sticky), sin hover effects
+      // En desktop: tooltip sticky que sigue el cursor + hover highlight
+      const isTouch = window.matchMedia("(pointer: coarse)").matches;
       const ttContent = buildTooltip(feature, election, layer, col, selectedCandidate);
       lyr.bindTooltip(ttContent, {
-        sticky: true,
+        sticky: !isTouch,
         opacity: 0.97,
         className: "renca-tooltip",
       });
 
       lyr.on("click", () => {
         const newId = String(fzoneId);
+        // En touch, cerrar tooltip antes de re-render para evitar artefactos
+        if (isTouch) lyr.closeTooltip();
         App.state.zoneId = (App.state.zoneId === newId) ? null : newId;
         updateBreadcrumb();
         renderPanel();
         updateMap();
       });
 
-      if (!isLocales) {
+      // Hover highlight solo en dispositivos con puntero fino (mouse)
+      if (!isLocales && !isTouch) {
         lyr.on("mouseover", () => {
           if (String(fzoneId) !== String(zoneId)) lyr.setStyle({ weight: 2, color: "#fff" });
         });
